@@ -176,7 +176,7 @@ body {
 @media screen and (min-width: 768px) {
   #main {
     width: 768px;
-    padding-right: 50px;
+    padding-left: 50px;
     margin: 0 auto;
   }
 }
@@ -1032,7 +1032,7 @@ pre .javascript .function {
   #sidebar {
     display: block;
     position: fixed;
-    right: 0;
+    left: 0;
     top: 0;
     width: 50px;
     height: 100%;
@@ -1058,7 +1058,7 @@ pre .javascript .function {
     font-size: 20px;
   }
   #sidebar a#go-top i.icon.icon-up:before {
-    content: "\e606";
+    content: "\e602";
   }
   #sidebar .menus {
     padding-top: 10px;
@@ -1085,15 +1085,21 @@ pre .javascript .function {
     font-size: 20px;
   }
   #sidebar .menus ul li a i.icon.icon-home:before {
-    content: "\e600";
-  }
-  #sidebar .menus ul li a i.icon.icon-fenlei:before {
-    content: "\e603";
-  }
-  #sidebar .menus ul li a i.icon.icon-tag:before {
     content: "\e601";
   }
+  #sidebar .menus ul li a i.icon.icon-fenlei:before {
+    content: "\e600";
+  }
+  #sidebar .menus ul li a i.icon.icon-tag:before {
+    content: "\e603";
+  }
   #sidebar .menus ul li a i.icon.icon-github:before {
-    content: "\e604";
+    content: "\e602";
+  }
+  #sidebar .menus ul li a i.icon.icon-about:before {
+    content: "\e606";
+  }
+  #sidebar .menus ul li a i.icon.icon-project:before {
+    content: "\e605";
   }
 }
