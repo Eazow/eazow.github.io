@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Markdown," />
+  <meta name="keywords" content="LeetCode," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).">
+<meta name="description" content="Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1’s in their binary representation and return them as an array.
+Example:For num = 5, you">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown参考">
-<meta property="og:url" content="http://yoursite.com/2016/03/25/Markdown参考/index.html">
+<meta property="og:title" content="[LeetCode]338. Counting Bits">
+<meta property="og:url" content="http://yoursite.com/2016/06/03/LeetCode-338-Counting-Bits/index.html">
 <meta property="og:site_name" content="Eazow">
-<meta property="og:description" content="Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).">
-<meta property="og:updated_time" content="2016-06-02T10:34:24.275Z">
+<meta property="og:description" content="Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1’s in their binary representation and return them as an array.
+Example:For num = 5, you">
+<meta property="og:updated_time" content="2016-06-03T07:04:12.095Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown参考">
-<meta name="twitter:description" content="Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).">
+<meta name="twitter:title" content="[LeetCode]338. Counting Bits">
+<meta name="twitter:description" content="Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1’s in their binary representation and return them as an array.
+Example:For num = 5, you">
 
 
 
@@ -111,7 +114,7 @@
   };
 </script>
 
-  <title> Markdown参考 | Eazow </title>
+  <title> [LeetCode]338. Counting Bits | Eazow </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -220,7 +223,7 @@
   
   
 
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -231,7 +234,7 @@
             
             
               
-                Markdown参考
+                [LeetCode]338. Counting Bits
               
             
           </h1>
@@ -243,8 +246,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-25T16:21:21+08:00" content="2016-03-25">
-              2016-03-25
+            <time itemprop="dateCreated" datetime="2016-06-03T14:55:49+08:00" content="2016-06-03">
+              2016-06-03
             </time>
           </span>
 
@@ -272,22 +275,12 @@
 
       
         <blockquote>
-<p>Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).</p>
+<p>Given a non negative integer number <strong>num</strong>. For every numbers <strong>i</strong> in the range <strong>0 ≤ i ≤ num</strong> calculate the number of 1’s in their binary representation and return them as an array.</p>
+<p><strong>Example:</strong>For <code>num = 5</code>, you should return <code>[0,1,1,2,1,2]</code>.</p>
 </blockquote>
-<p>用markdown写东西感觉很赞，方便简洁，给人带来一种想写东西的快感</p>
-<h5 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">...</span><br><span class="line">###### 六级标题</span><br><span class="line"></span><br><span class="line">&gt; 这是一句引用</span><br><span class="line"></span><br><span class="line">*斜体*</span><br><span class="line">**粗体**</span><br><span class="line">***斜粗体***</span><br><span class="line"></span><br><span class="line">* 列表1</span><br><span class="line">* 列表2</span><br><span class="line">* 列表3</span><br><span class="line"></span><br><span class="line">***  //分割线</span><br></pre></td></tr></table></figure>
-<h5 id="对应效果如下"><a href="#对应效果如下" class="headerlink" title="对应效果如下"></a>对应效果如下</h5><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><blockquote>
-<p>这是一句引用</p>
-</blockquote>
-<ul>
-<li>列表1</li>
-<li>列表2</li>
-<li>列表3</li>
-</ul>
-<p><em>斜体</em><br><strong>粗体</strong><br><strong><em>斜粗体</em></strong></p>
-<hr>
-<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="external">http://daringfireball.net/projects/markdown/</a></p>
-
+<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>给定一个非负整数num，计算出从0到num的每个数的二进制中包含1的个数</p>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>对于数字n，它二进制表示形式中1的个数<code>bits[n] = bits[n&gt;&gt;1]+n&amp;1</code></p>
+<h4 id="c代码"><a href="#c代码" class="headerlink" title="c代码"></a>c代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;assert.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Return an array of size *returnSize.</span><br><span class="line"> * Note: The returned array must be malloced, assume caller calls free().</span><br><span class="line"> */</span><br><span class="line">int* countBits(int num, int* returnSize) &#123;</span><br><span class="line">    int i = 0;</span><br><span class="line">    int* bits = (int *)malloc(sizeof(int) * (num+1));</span><br><span class="line">    bits[0] = 0;</span><br><span class="line">    for(i = 0; i &lt;= num; i++) &#123;</span><br><span class="line">        bits[i] = bits[i&gt;&gt;1] + (i&amp;1);</span><br><span class="line">    &#125;</span><br><span class="line">    *returnSize = num+1;</span><br><span class="line">    return bits;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int returnSize = 0;</span><br><span class="line">    int* bits = countBits(5, &amp;returnSize);</span><br><span class="line">    assert(bits[0] == 0);</span><br><span class="line">    assert(bits[1] == 1);</span><br><span class="line">    assert(bits[2] == 1);</span><br><span class="line">    assert(bits[3] == 2);</span><br><span class="line">    assert(bits[4] == 1);</span><br><span class="line">    assert(bits[5] == 2);</span><br><span class="line">    assert(returnSize == 6);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -308,7 +301,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Markdown/" rel="tag">#Markdown</a>
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
           
         </div>
       
@@ -317,16 +310,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/25/在Github上用Hexo搭建个人Blog/" rel="next" title="在Github上用Hexo搭建个人Blog">
-                <i class="fa fa-chevron-left"></i> 在Github上用Hexo搭建个人Blog
+              <a href="/2016/06/02/LeetCode-1-Two-Sum/" rel="next" title="[LeetCode]1. Two Sum">
+                <i class="fa fa-chevron-left"></i> [LeetCode]1. Two Sum
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/02/LeetCode-1-Two-Sum/" rel="prev" title="[LeetCode]1. Two Sum">
-                [LeetCode]1. Two Sum <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/06/LeetCode-Online-Judge/" rel="prev" title="LeetCode Online Judge">
+                LeetCode Online Judge <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -434,7 +427,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本语法"><span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对应效果如下"><span class="nav-text">对应效果如下</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一级标题"><span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二级标题"><span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#六级标题"><span class="nav-text">六级标题</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目"><span class="nav-text">题目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-text">方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c代码"><span class="nav-text">c代码</span></a></li></ol></div>
             
           </div>
         </section>
