@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LeetCode," />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -84,19 +84,22 @@
 
 
 
-<meta name="description" content="Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1’s in their binary representation and return them as an array.
-Example:For num = 5, you">
+<meta name="description" content="折腾了差不多一、两天，终于通过虚拟机在Ubuntu下完成了通过编译内核，增加系统调用的实验，在此与大家分享一下，希望能够对看到的xdjm们或多或少地提供些帮助！
+期间我换了几个内核版本，make了几次，浪费了大量的时间，主要还是对里面的文件不了解，找不到网上说的文件就很郁闷，甚至有些烦躁，最后换了个有同学成功的版本，终于坚持下来完成了！
+其中make modules很费时间，而且我是用的虚拟机，那">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode]338. Counting Bits">
-<meta property="og:url" content="http://yoursite.com/2016/06/03/LeetCode-338-Counting-Bits/index.html">
+<meta property="og:title" content="编译Linux内核增加系统调用">
+<meta property="og:url" content="http://yoursite.com/2008/02/29/编译Linux内核增加系统调用/index.html">
 <meta property="og:site_name" content="Eazow">
-<meta property="og:description" content="Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1’s in their binary representation and return them as an array.
-Example:For num = 5, you">
-<meta property="og:updated_time" content="2016-06-03T08:25:43.573Z">
+<meta property="og:description" content="折腾了差不多一、两天，终于通过虚拟机在Ubuntu下完成了通过编译内核，增加系统调用的实验，在此与大家分享一下，希望能够对看到的xdjm们或多或少地提供些帮助！
+期间我换了几个内核版本，make了几次，浪费了大量的时间，主要还是对里面的文件不了解，找不到网上说的文件就很郁闷，甚至有些烦躁，最后换了个有同学成功的版本，终于坚持下来完成了！
+其中make modules很费时间，而且我是用的虚拟机，那">
+<meta property="og:updated_time" content="2016-06-06T05:45:38.975Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode]338. Counting Bits">
-<meta name="twitter:description" content="Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1’s in their binary representation and return them as an array.
-Example:For num = 5, you">
+<meta name="twitter:title" content="编译Linux内核增加系统调用">
+<meta name="twitter:description" content="折腾了差不多一、两天，终于通过虚拟机在Ubuntu下完成了通过编译内核，增加系统调用的实验，在此与大家分享一下，希望能够对看到的xdjm们或多或少地提供些帮助！
+期间我换了几个内核版本，make了几次，浪费了大量的时间，主要还是对里面的文件不了解，找不到网上说的文件就很郁闷，甚至有些烦躁，最后换了个有同学成功的版本，终于坚持下来完成了！
+其中make modules很费时间，而且我是用的虚拟机，那">
 
 
 
@@ -114,7 +117,7 @@ Example:For num = 5, you">
   };
 </script>
 
-  <title> [LeetCode]338. Counting Bits | Eazow </title>
+  <title> 编译Linux内核增加系统调用 | Eazow </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -234,7 +237,7 @@ Example:For num = 5, you">
             
             
               
-                [LeetCode]338. Counting Bits
+                编译Linux内核增加系统调用
               
             
           </h1>
@@ -246,8 +249,8 @@ Example:For num = 5, you">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-03T14:55:49+08:00" content="2016-06-03">
-              2016-06-03
+            <time itemprop="dateCreated" datetime="2008-02-29T18:50:36+08:00" content="2008-02-29">
+              2008-02-29
             </time>
           </span>
 
@@ -274,13 +277,28 @@ Example:For num = 5, you">
       
 
       
-        <blockquote>
-<p>Given a non negative integer number <strong>num</strong>. For every numbers <strong>i</strong> in the range <strong>0 ≤ i ≤ num</strong> calculate the number of 1’s in their binary representation and return them as an array.</p>
-<p><strong>Example:</strong>For <code>num = 5</code>, you should return <code>[0,1,1,2,1,2]</code>.</p>
-</blockquote>
-<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>给定一个非负整数num，计算出从0到num的每个数的二进制中包含1的个数</p>
-<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>对于数字n，它二进制表示形式中1的个数<code>bits[n] = bits[n&gt;&gt;1]+n&amp;1</code></p>
-<h4 id="c代码"><a href="#c代码" class="headerlink" title="c代码"></a>c代码</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Return an array of size *returnSize.</span><br><span class="line"> * Note: The returned array must be malloced, assume caller calls free().</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span>* <span class="title">countBits</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span>* returnSize)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span>* bits = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * (num+<span class="number">1</span>));</span><br><span class="line">    bits[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt;= num; i++) &#123;</span><br><span class="line">        bits[i] = bits[i&gt;&gt;<span class="number">1</span>] + (i&amp;<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    *returnSize = num+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> bits;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> returnSize = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span>* bits = countBits(<span class="number">5</span>, &amp;returnSize);</span><br><span class="line">    assert(bits[<span class="number">0</span>] == <span class="number">0</span>);</span><br><span class="line">    assert(bits[<span class="number">1</span>] == <span class="number">1</span>);</span><br><span class="line">    assert(bits[<span class="number">2</span>] == <span class="number">1</span>);</span><br><span class="line">    assert(bits[<span class="number">3</span>] == <span class="number">2</span>);</span><br><span class="line">    assert(bits[<span class="number">4</span>] == <span class="number">1</span>);</span><br><span class="line">    assert(bits[<span class="number">5</span>] == <span class="number">2</span>);</span><br><span class="line">    assert(returnSize == <span class="number">6</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>折腾了差不多一、两天，终于通过虚拟机在Ubuntu下完成了通过编译内核，增加系统调用的实验，在此与大家分享一下，希望能够对看到的xdjm们或多或少地提供些帮助！</p>
+<p>期间我换了几个内核版本，make了几次，浪费了大量的时间，主要还是对里面的文件不了解，找不到网上说的文件就很郁闷，甚至有些烦躁，最后换了个有同学成功的版本，终于坚持下来完成了！</p>
+<p>其中make modules很费时间，而且我是用的虚拟机，那就更慢了，估计2小时左右吧，当然这两小时我也不闲着，外面阳光灿烂，我也出去好好的打了几次球 ^_^   ，劳逸结合啊！正当我打累了回来它差不多就好了，Ubuntu真给面子啊！</p>
+<p>我用的 Ubuntu 7.10 ，编译的内核版本是2.6.23.12   （更多版本可以到<a href="http://www.kernel.org去下载）" target="_blank" rel="external">http://www.kernel.org去下载）</a></p>
+<p>1.将内核包解压到 /usr/src 下：<br>    $ tar jvxf linux-2.6.23.12.tar.gz2 或者是 tar zxvf   linux-2.6.23.12.tar.gz （注意后缀）</p>
+<p>2.增加新的系统调用，修改sys.c：<br>   $ cd /usr/src/linux-2.6.23.12/<br>   $ gedit kernel/sys.c<br>     比如往里面添加一个简单的调用<br>      asmlinkage int sys_mysyscall(int num)<br>      {<br>                 printk(“hello”);<br>                 return num;<br>       }</p>
+<p>3.修改系统调用表，syscall_table.S:：<br>   $ cd /usr/src/linux-2.6.23.12/arch/i386/kernel      （没有i386文件夹的版本的貌似是进x86）<br>   $ gedit syscall_table.S<br>       在最后加上 .long sys_mysyscall</p>
+<p>4.增加新系统调用号，修改unistd.h<br>   1) $ gedit /usr/include/asm-i386/unisted.h<br>          添加   #define _ _NR<em>mysyscall   325<br>    2) $ gedit /usr/src/linux-2.6.23.12/include/asm-i386/unistd.h<br>          添加   #define   </em> _NR_mysyscall    325<br>           并将里面的 #define NR_syscall   325    改为 326 （增加更多的系统调用依次类推）</p>
+<p>5.好了，开始编译内核了：<br>    $ cd /usr/src/linux-2.6.23.12<br>   $ make menuconfig<br>   $ make bzImage<br>   $ make modules<br>   $ make modules_install<br>   $ cp    arch/i386/boot/bzImage    /boot/vmlinuz-2.6.23.12<br>   $ mkinitramfs -o initrd.img-2.6.23.12    2.6.23.12     (不要怀疑，前面正确的话/lib/modules会多出2.6.23.12这个文件夹)</p>
+<p>6.修改grub：<br>    第5步后/boot 下会多出两个文件 vmlinuz-2.6.23.12     initrd.img-2.6.23.12<br>    $ gedit /boot/grub/menu.lst               (没有menu.lst可能会是grub.conf)<br>       仿照里面的格式：<br>       title       Ubuntu 7.10, kernel 2.6.22-14-generic<br>       root     (hd0,0)<br>       kernel   /boot/vmlinuz-2.6.22-14-generic root=UUID=e2478f9d-7f5d-458f-b017-43458a8f62ea ro quiet<br>       splash<br>       initrd   /boot/initrd.img-2.6.22-14-generic<br>       quiet<br>       添加：<br>        title   Ubuntu 7.10, kernel 2.6.23-12<br>        root   (hd0,0)<br>       kernel   /boot/vmlinuz-2.6.23.12   root=UUID=e2478f9d-7f5d-458f-b017-43458a8f62ea ro quiet<br>        splash<br>        initrd   /boot/initrd-2.6.23.12.img<br>        quiet</p>
+<pre><code>将   hiddenmenu注释掉 即#hiddenmenu
+</code></pre><p>7.重启，导入新的内核，测试：<br>   // test.c</p>
+<p>   #include <linux unistd.h=""></linux></p>
+<p>   #include <stdio.h></stdio.h></p>
+<p>   #include <asm unistd.h=""></asm></p>
+<p>   #define __NR_mycall     325 </p>
+<p>   #define __NR_myfilecopy     326    (我增加的拷贝文件的系统调用）</p>
+<p>   int main()<br>   {<br>          syscall(325,6);    （6为系统调用的参数，多参数的类推）</p>
+<pre><code>      return 1;
+}
+</code></pre><p>最后，预祝你们圆满成功！！      </p>
+
       
     </div>
 
@@ -301,7 +319,7 @@ Example:For num = 5, you">
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
           
         </div>
       
@@ -310,16 +328,12 @@ Example:For num = 5, you">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/02/LeetCode-1-Two-Sum/" rel="next" title="[LeetCode]1. Two Sum">
-                <i class="fa fa-chevron-left"></i> [LeetCode]1. Two Sum
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/03/LeetCode-144-Binary-Tree-Preorder-Traversal/" rel="prev" title="[LeetCode]144. Binary Tree Preorder Traversal">
-                [LeetCode]144. Binary Tree Preorder Traversal <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/25/在Github上用Hexo搭建个人Blog/" rel="prev" title="在Github上用Hexo搭建个人Blog">
+                在Github上用Hexo搭建个人Blog <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -427,7 +441,7 @@ Example:For num = 5, you">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目"><span class="nav-text">题目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-text">方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c代码"><span class="nav-text">c代码</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
