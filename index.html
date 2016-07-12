@@ -1047,24 +1047,39 @@
             <p>折腾了差不多一、两天，终于通过虚拟机在Ubuntu下完成了通过编译内核，增加系统调用的实验，在此与大家分享一下，希望能够对看到的xdjm们或多或少地提供些帮助！</p>
 <p>期间我换了几个内核版本，make了几次，浪费了大量的时间，主要还是对里面的文件不了解，找不到网上说的文件就很郁闷，甚至有些烦躁，最后换了个有同学成功的版本，终于坚持下来完成了！</p>
 <p>其中make modules很费时间，而且我是用的虚拟机，那就更慢了，估计2小时左右吧，当然这两小时我也不闲着，外面阳光灿烂，我也出去好好的打了几次球 ^_^   ，劳逸结合啊！正当我打累了回来它差不多就好了，Ubuntu真给面子啊！</p>
-<p>我用的 Ubuntu 7.10 ，编译的内核版本是2.6.23.12   （更多版本可以到<a href="http://www.kernel.org去下载）" target="_blank" rel="external">http://www.kernel.org去下载）</a></p>
-<p>1.将内核包解压到 /usr/src 下：<br>    $ tar jvxf linux-2.6.23.12.tar.gz2 或者是 tar zxvf   linux-2.6.23.12.tar.gz （注意后缀）</p>
-<p>2.增加新的系统调用，修改sys.c：<br>   $ cd /usr/src/linux-2.6.23.12/<br>   $ gedit kernel/sys.c<br>     比如往里面添加一个简单的调用<br>      asmlinkage int sys_mysyscall(int num)<br>      {<br>                 printk(“hello”);<br>                 return num;<br>       }</p>
-<p>3.修改系统调用表，syscall_table.S:：<br>   $ cd /usr/src/linux-2.6.23.12/arch/i386/kernel      （没有i386文件夹的版本的貌似是进x86）<br>   $ gedit syscall_table.S<br>       在最后加上 .long sys_mysyscall</p>
-<p>4.增加新系统调用号，修改unistd.h<br>   1) $ gedit /usr/include/asm-i386/unisted.h<br>          添加   #define _ _NR<em>mysyscall   325<br>    2) $ gedit /usr/src/linux-2.6.23.12/include/asm-i386/unistd.h<br>          添加   #define   </em> _NR_mysyscall    325<br>           并将里面的 #define NR_syscall   325    改为 326 （增加更多的系统调用依次类推）</p>
-<p>5.好了，开始编译内核了：<br>    $ cd /usr/src/linux-2.6.23.12<br>   $ make menuconfig<br>   $ make bzImage<br>   $ make modules<br>   $ make modules_install<br>   $ cp    arch/i386/boot/bzImage    /boot/vmlinuz-2.6.23.12<br>   $ mkinitramfs -o initrd.img-2.6.23.12    2.6.23.12     (不要怀疑，前面正确的话/lib/modules会多出2.6.23.12这个文件夹)</p>
-<p>6.修改grub：<br>    第5步后/boot 下会多出两个文件 vmlinuz-2.6.23.12     initrd.img-2.6.23.12<br>    $ gedit /boot/grub/menu.lst               (没有menu.lst可能会是grub.conf)<br>       仿照里面的格式：<br>       title       Ubuntu 7.10, kernel 2.6.22-14-generic<br>       root     (hd0,0)<br>       kernel   /boot/vmlinuz-2.6.22-14-generic root=UUID=e2478f9d-7f5d-458f-b017-43458a8f62ea ro quiet<br>       splash<br>       initrd   /boot/initrd.img-2.6.22-14-generic<br>       quiet<br>       添加：<br>        title   Ubuntu 7.10, kernel 2.6.23-12<br>        root   (hd0,0)<br>       kernel   /boot/vmlinuz-2.6.23.12   root=UUID=e2478f9d-7f5d-458f-b017-43458a8f62ea ro quiet<br>        splash<br>        initrd   /boot/initrd-2.6.23.12.img<br>        quiet</p>
-<pre><code>将   hiddenmenu注释掉 即#hiddenmenu
-</code></pre><p>7.重启，导入新的内核，测试：<br>   // test.c</p>
-<p>   #include <linux unistd.h=""></linux></p>
-<p>   #include <stdio.h></stdio.h></p>
-<p>   #include <asm unistd.h=""></asm></p>
-<p>   #define __NR_mycall     325 </p>
-<p>   #define __NR_myfilecopy     326    (我增加的拷贝文件的系统调用）</p>
-<p>   int main()<br>   {<br>          syscall(325,6);    （6为系统调用的参数，多参数的类推）</p>
-<pre><code>      return 1;
-}
-</code></pre><p>最后，预祝你们圆满成功！！      </p>
+<p>我用的 Ubuntu 7.10 ，编译的内核版本是2.6.23.12   （更多版本可以到<a href="http://[www.kernel.org](http://www.kernel.org/)去下载）" target="_blank" rel="external">http://[www.kernel.org](http://www.kernel.org/)去下载）</a></p>
+<ul>
+<li>将内核包解压到 /usr/src 下:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tar jvxf linux-2.6.23.12.tar.gz2</span><br><span class="line">``` </span><br><span class="line">或者是 （注意后缀）</span><br></pre></td></tr></table></figure>
+<p>$ tar zxvf   linux-2.6.23.12.tar.gz<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 增加新的系统调用，修改sys.c：</span><br></pre></td></tr></table></figure></p>
+<p>$ cd /usr/src/linux-2.6.23.12/<br>$ gedit kernel/sys.c<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">比如往里面添加一个简单的调用   </span><br><span class="line">```c</span><br><span class="line">asmlinkage int sys_mysyscall(int num) &#123;                                 </span><br><span class="line">    printk(&quot;hello&quot;);</span><br><span class="line">    return num;       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>修改系统调用表，syscall_table.S：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/src/linux-2.6.23.12/arch/i386/kernel      </span><br><span class="line">//（没有i386文件夹的版本的貌似是进x86）   </span><br><span class="line">$ gedit syscall_table.S</span><br></pre></td></tr></table></figure>
+<p>在最后加上 .long sys_mysyscall</p>
+<ul>
+<li>增加新系统调用号，修改/usr/include/asm-i386/unisted.h, 添加 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define _ _NR_mysyscall   325</span><br></pre></td></tr></table></figure>
+<p>修改/usr/src/linux-2.6.23.12/include/asm-i386/unistd.h<br>添加  <code>#define   _ _NR_mysyscall    325</code>, 并将里面的 <code>#define NR_syscall   325</code>改为326, 增加更多的系统调用依次类推</p>
+<ul>
+<li>开始编译内核了： </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/src/linux-2.6.23.12   </span><br><span class="line">$ make menuconfig   </span><br><span class="line">$ make bzImage   </span><br><span class="line">$ make modules   </span><br><span class="line">$ make modules_install   </span><br><span class="line">$ cp  arch/i386/boot/bzImage    /boot/vmlinuz-2.6.23.12   $ mkinitramfs -o initrd.img-2.6.23.12    2.6.23.12</span><br></pre></td></tr></table></figure>
+<p>不要怀疑，前面正确的话/lib/modules会多出2.6.23.12这个文件夹</p>
+<ul>
+<li>修改grub：   </li>
+</ul>
+<p>第5步后/boot 下会多出两个文件 vmlinuz-2.6.23.12     initrd.img-2.6.23.12<br>修改/boot/grub/menu.lst, 没有menu.lst可能会是grub.conf<br>仿照里面的格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title     Ubuntu 7.10, kernel 2.6.22-14-generic </span><br><span class="line">root     (hd0,0)</span><br><span class="line">kernel  /boot/vmlinuz-2.6.22-14-generic root=UUID=e2478f9d-7f5d-458f-b017-43458a8f62ea ro quiet   </span><br><span class="line">splash</span><br><span class="line">initrd   /boot/initrd.img-2.6.22-14-generic       </span><br><span class="line">quiet</span><br></pre></td></tr></table></figure></p>
+<p>添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title   Ubuntu 7.10, kernel 2.6.23-12        </span><br><span class="line">root   (hd0,0)       </span><br><span class="line">kernel   /boot/vmlinuz-2.6.23.12   root=UUID=e2478f9d-7f5d-458f-b017-43458a8f62ea ro quiet         </span><br><span class="line">splash        </span><br><span class="line">initrd   /boot/initrd-2.6.23.12.img        </span><br><span class="line">quiet</span><br></pre></td></tr></table></figure></p>
+<p>将   hiddenmenu注释掉 即#hiddenmenu</p>
+<ul>
+<li>重启，导入新的内核，测试，新建test.c：   </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;linux/unistd.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;asm/unistd.h&gt;</span><br><span class="line"></span><br><span class="line">#define __NR_mycall     325 </span><br><span class="line">#define __NR_myfilecopy     326    //我增加的拷贝文件的系统调用</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123; </span><br><span class="line">    syscall(325,6);    //6为系统调用的参数，多参数的类推</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后，预祝你们圆满成功！！          </p>
 
           
         
