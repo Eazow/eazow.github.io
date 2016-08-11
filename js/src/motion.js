@@ -199,11 +199,11 @@ $(document).ready(function () {
         o: {duration: 200}
       });
 
-      NexT.utils.isMist() && hasElement([$logoLineTop, $logoLineBottom]) &&
-      sequence.push(
-        getMistLineSettings($logoLineTop, '100%'),
-        getMistLineSettings($logoLineBottom, '-100%')
-      );
+//      NexT.utils.isMist() && hasElement([$logoLineTop, $logoLineBottom]) &&
+//      sequence.push(
+//        getMistLineSettings($logoLineTop, '100%'),
+//        getMistLineSettings($logoLineBottom, '-100%')
+//      );
 
       hasElement($title) && sequence.push({
         e: $title,
