@@ -1,0 +1,480 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LeetCode," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Given a set of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.The same repeated number may be chosen from C unlimited number of">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[LeetCode]39. Combination Sum">
+<meta property="og:url" content="http://yoursite.com/2016/08/19/LeetCode-39-Combination-Sum/index.html">
+<meta property="og:site_name" content="Eazow">
+<meta property="og:description" content="Given a set of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.The same repeated number may be chosen from C unlimited number of">
+<meta property="og:updated_time" content="2016-08-19T08:42:47.663Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode]39. Combination Sum">
+<meta name="twitter:description" content="Given a set of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.The same repeated number may be chosen from C unlimited number of">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"remove"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> [LeetCode]39. Combination Sum | Eazow </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Eazow</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">点滴积累</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                [LeetCode]39. Combination Sum
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-19T16:42:04+08:00" content="2016-08-19">
+              2016-08-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>Given a set of candidate numbers (<strong><em>C</em></strong>) and a target number (<strong><em>T</em></strong>), find all unique combinations in <strong><em>C</em></strong> where the candidate numbers sums to <strong><em>T</em></strong>.<br>The <strong>same</strong> repeated number may be chosen from <strong><em>C</em></strong> unlimited number of times.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>All numbers (including target) will be positive integers.</li>
+<li>The solution set must not contain duplicate combinations.</li>
+</ul>
+<p>For example, given candidate set [2, 3, 6, 7]<br> and target 7,<br>A solution set is:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [7],</span><br><span class="line">  [2, 2, 3]</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h5><p>利用栈，如果要入栈的数+已入栈的数的和<target, 则入栈；如果="=target，则复制该栈，加入返回结果，然后从栈取出一个数，取其下一个数准备入栈；如果">target, 则从栈取出一个数，取其下一个数准备入栈。注意一些边界条件的判断</target,></p>
+<h5 id="Python代码"><a href="#Python代码" class="headerlink" title="Python代码"></a>Python代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def combinationSum(self, candidates, target):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type candidates: List[int]</span><br><span class="line">        :type tatget: int</span><br><span class="line">        :rtype List[List[int]]</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        nums = []</span><br><span class="line">        indexes = []</span><br><span class="line">        returnLists = []</span><br><span class="line">        sum = 0</span><br><span class="line">        i = 0</span><br><span class="line">        candidates.sort()</span><br><span class="line">        while True:</span><br><span class="line">            while i &gt;= len(candidates):</span><br><span class="line">                if len(nums) == 0:</span><br><span class="line">                    return returnLists</span><br><span class="line">                sum -= nums.pop()</span><br><span class="line">                i = indexes.pop()+1</span><br><span class="line">            if sum + candidates[i] &lt; target:</span><br><span class="line">                nums.append(candidates[i])</span><br><span class="line">                indexes.append(i)</span><br><span class="line">                sum += candidates[i]</span><br><span class="line">            elif sum + candidates[i] &gt; target:</span><br><span class="line">                if len(nums) &gt; 0:</span><br><span class="line">                    sum -= nums.pop()</span><br><span class="line">                    i = indexes.pop()+1</span><br><span class="line">                else:</span><br><span class="line">                    return returnLists</span><br><span class="line">            elif sum + candidates[i] == target:</span><br><span class="line">                newNums = nums[:]</span><br><span class="line">                newNums.append(candidates[i])</span><br><span class="line">                returnLists.append(newNums)</span><br><span class="line">                if len(nums) &gt; 0:</span><br><span class="line">                    sum -= nums.pop()</span><br><span class="line">                    i = indexes.pop()+1</span><br><span class="line">                else:</span><br><span class="line">                    i += 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">assert Solution().combinationSum([2,3,4], 7)==[[2,2,3], [3,4]]</span><br><span class="line">assert Solution().combinationSum([2,3,6,7], 7)==[[2,2,3], [7]]</span><br><span class="line">assert Solution().combinationSum([2], 1) == []</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/12/LeetCode-377-Combination-Sum-IV/" rel="next" title="[LeetCode]377. Combination Sum IV">
+                <i class="fa fa-chevron-left"></i> [LeetCode]377. Combination Sum IV
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <!--span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span-->
+  <span class="author" itemprop="copyrightHolder">Eazow</span>
+</div>
+
+<!--div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
