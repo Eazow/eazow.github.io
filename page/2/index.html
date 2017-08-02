@@ -243,6 +243,104 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/09/LeetCode-201-Bitwise-AND-of-Numbers-Range/" itemprop="url">
+                  [LeetCode]201. Bitwise AND of Numbers Range
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-09T14:12:37+08:00" content="2016-09-09">
+              2016-09-09
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>Given a range [m, n] where 0 &lt;= m &lt;= n &lt;= 2147483647, return the bitwise AND of all numbers in this range, inclusive.</p>
+<p>For example, given the range [5, 7], you should return 4.</p>
+</blockquote>
+<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>直接对所有数按位与，会超时，因此只能采用别的方法。<br>对于<code>[1,3]</code>, 对应二进制位<code>01,010,011</code>，按位与为0；对于<code>[5,7]</code>，对应二进制为<code>0101,0110,0111</code>，按位与为<code>0100</code>。<br>对于<code>[m,n]</code>，如果<code>m!=n</code>，那么m和n最右一位按位与必然为0；同时将m,n都右移一位，用bits记录移位数，如果<code>m!=n</code>，继续将m,n右移一位。最后<code>m==n</code>时，将<code>m&lt;&lt;bits</code>位即可，此时m可以为0或为其他值。如果m为0，n也为0,那么m和n的位数并不相同，因此结果为0；如果m不为0，那么m和n前几位必然相同，用<code>m&lt;&lt;bits</code>就可以得到最后结果。</p>
+<h5 id="C代码"><a href="#C代码" class="headerlink" title="C代码"></a>C代码</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rangeBitwiseAnd</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> bits = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(m != n) &#123;</span><br><span class="line">        m &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        bits++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m&lt;&lt;bits;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line">int rangeBitwiseAnd(int m, int n) &#123;</span><br><span class="line">    int bitwiseAnd = m;</span><br><span class="line">    while(m &lt;= n) &#123;</span><br><span class="line">        bitwiseAnd &amp;= m;</span><br><span class="line">        m++;</span><br><span class="line">    &#125;</span><br><span class="line">    return bitwiseAnd;</span><br><span class="line">&#125;</span><br><span class="line">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assert(rangeBitwiseAnd(<span class="number">5</span>,<span class="number">7</span>) == <span class="number">4</span>);</span><br><span class="line">    assert(rangeBitwiseAnd(<span class="number">1</span>,<span class="number">3</span>) == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/01/LeetCode-Online-Judge/" itemprop="url">
                   LeetCode Online Judge
                 </a>
@@ -1305,140 +1403,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2008/02/29/编译Linux内核增加系统调用/" itemprop="url">
-                  编译Linux内核增加系统调用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2008-02-29T18:50:36+08:00" content="2008-02-29">
-              2008-02-29
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>折腾了差不多一、两天，终于通过虚拟机在Ubuntu下完成了通过编译内核，增加系统调用的实验，在此与大家分享一下，希望能够对看到的xdjm们或多或少地提供些帮助！</p>
-<p>期间我换了几个内核版本，make了几次，浪费了大量的时间，主要还是对里面的文件不了解，找不到网上说的文件就很郁闷，甚至有些烦躁，最后换了个有同学成功的版本，终于坚持下来完成了！</p>
-<p>其中make modules很费时间，而且我是用的虚拟机，那就更慢了，估计2小时左右吧，当然这两小时我也不闲着，外面阳光灿烂，我也出去好好的打了几次球 ^_^   ，劳逸结合啊！正当我打累了回来它差不多就好了，Ubuntu真给面子啊！</p>
-<p>我用的 Ubuntu 7.10 ，编译的内核版本是2.6.23.12   （更多版本可以到<a href="http://[www.kernel.org](http://www.kernel.org/)去下载）" target="_blank" rel="external">http://[www.kernel.org](http://www.kernel.org/)去下载）</a></p>
-<ul>
-<li>将内核包解压到 /usr/src 下:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tar jvxf linux-2.6.23.12.tar.gz2</span><br><span class="line">``` </span><br><span class="line">或者是 （注意后缀）</span><br></pre></td></tr></table></figure>
-<p>$ tar zxvf   linux-2.6.23.12.tar.gz<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 增加新的系统调用，修改sys.c：</span><br></pre></td></tr></table></figure></p>
-<p>$ cd /usr/src/linux-2.6.23.12/<br>$ gedit kernel/sys.c<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">比如往里面添加一个简单的调用   </span><br><span class="line">```c</span><br><span class="line">asmlinkage int sys_mysyscall(int num) &#123;                                 </span><br><span class="line">    printk(&quot;hello&quot;);</span><br><span class="line">    return num;       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>修改系统调用表，syscall_table.S：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/src/linux-2.6.23.12/arch/i386/kernel      </span><br><span class="line">//（没有i386文件夹的版本的貌似是进x86）   </span><br><span class="line">$ gedit syscall_table.S</span><br></pre></td></tr></table></figure>
-<p>在最后加上 .long sys_mysyscall</p>
-<ul>
-<li>增加新系统调用号，修改/usr/include/asm-i386/unisted.h, 添加 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define _ _NR_mysyscall   325</span><br></pre></td></tr></table></figure>
-<p>修改/usr/src/linux-2.6.23.12/include/asm-i386/unistd.h<br>添加  <code>#define   _ _NR_mysyscall    325</code>, 并将里面的 <code>#define NR_syscall   325</code>改为326, 增加更多的系统调用依次类推</p>
-<ul>
-<li>开始编译内核了： </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/src/linux-2.6.23.12   </span><br><span class="line">$ make menuconfig   </span><br><span class="line">$ make bzImage   </span><br><span class="line">$ make modules   </span><br><span class="line">$ make modules_install   </span><br><span class="line">$ cp  arch/i386/boot/bzImage    /boot/vmlinuz-2.6.23.12   $ mkinitramfs -o initrd.img-2.6.23.12    2.6.23.12</span><br></pre></td></tr></table></figure>
-<p>不要怀疑，前面正确的话/lib/modules会多出2.6.23.12这个文件夹</p>
-<ul>
-<li>修改grub：   </li>
-</ul>
-<p>第5步后/boot 下会多出两个文件 vmlinuz-2.6.23.12     initrd.img-2.6.23.12<br>修改/boot/grub/menu.lst, 没有menu.lst可能会是grub.conf<br>仿照里面的格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title     Ubuntu 7.10, kernel 2.6.22-14-generic </span><br><span class="line">root     (hd0,0)</span><br><span class="line">kernel  /boot/vmlinuz-2.6.22-14-generic root=UUID=e2478f9d-7f5d-458f-b017-43458a8f62ea ro quiet   </span><br><span class="line">splash</span><br><span class="line">initrd   /boot/initrd.img-2.6.22-14-generic       </span><br><span class="line">quiet</span><br></pre></td></tr></table></figure></p>
-<p>添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title   Ubuntu 7.10, kernel 2.6.23-12        </span><br><span class="line">root   (hd0,0)       </span><br><span class="line">kernel   /boot/vmlinuz-2.6.23.12   root=UUID=e2478f9d-7f5d-458f-b017-43458a8f62ea ro quiet         </span><br><span class="line">splash        </span><br><span class="line">initrd   /boot/initrd-2.6.23.12.img        </span><br><span class="line">quiet</span><br></pre></td></tr></table></figure></p>
-<p>将   hiddenmenu注释掉 即#hiddenmenu</p>
-<ul>
-<li>重启，导入新的内核，测试，新建test.c：   </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;linux/unistd.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;asm/unistd.h&gt;</span><br><span class="line"></span><br><span class="line">#define __NR_mycall     325 </span><br><span class="line">#define __NR_myfilecopy     326    //我增加的拷贝文件的系统调用</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123; </span><br><span class="line">    syscall(325,6);    //6为系统调用的参数，多参数的类推</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>最后，预祝你们圆满成功！！          </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
