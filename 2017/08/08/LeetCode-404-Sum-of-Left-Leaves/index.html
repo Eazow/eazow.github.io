@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="题目Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ;">
+<meta name="description" content="题目Find the sum of all left leaves in a given binary tree.
+Example:1234567    3   / \  9  20    /  \   15   7There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode]383. Ransom Note">
-<meta property="og:url" content="http://yoursite.com/2017/08/02/LeetCode-383-Ransom-Note/index.html">
+<meta property="og:title" content="[LeetCode]404. Sum of Left Leaves">
+<meta property="og:url" content="http://yoursite.com/2017/08/08/LeetCode-404-Sum-of-Left-Leaves/index.html">
 <meta property="og:site_name" content="Eazow">
-<meta property="og:description" content="题目Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ;">
-<meta property="og:updated_time" content="2017-08-02T09:19:30.853Z">
+<meta property="og:description" content="题目Find the sum of all left leaves in a given binary tree.
+Example:1234567    3   / \  9  20    /  \   15   7There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.">
+<meta property="og:updated_time" content="2017-08-08T07:14:02.144Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode]383. Ransom Note">
-<meta name="twitter:description" content="题目Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ;">
+<meta name="twitter:title" content="[LeetCode]404. Sum of Left Leaves">
+<meta name="twitter:description" content="题目Find the sum of all left leaves in a given binary tree.
+Example:1234567    3   / \  9  20    /  \   15   7There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.">
 
 
 
@@ -111,7 +114,7 @@
   };
 </script>
 
-  <title> [LeetCode]383. Ransom Note | Eazow </title>
+  <title> [LeetCode]404. Sum of Left Leaves | Eazow </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -241,7 +244,7 @@
             
             
               
-                [LeetCode]383. Ransom Note
+                [LeetCode]404. Sum of Left Leaves
               
             
           </h1>
@@ -253,8 +256,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-02T17:18:47+08:00" content="2017-08-02">
-              2017-08-02
+            <time itemprop="dateCreated" datetime="2017-08-08T15:12:54+08:00" content="2017-08-08">
+              2017-08-08
             </time>
           </span>
 
@@ -281,12 +284,10 @@
       
 
       
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.</p>
-<p>Each letter in the magazine string can only be used once in your ransom note.</p>
-<p><strong>Note:</strong><br>You may assume that both strings contain only lowercase letters.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">canConstruct(&quot;a&quot;, &quot;b&quot;) -&gt; false</span><br><span class="line">canConstruct(&quot;aa&quot;, &quot;ab&quot;) -&gt; false</span><br><span class="line">canConstruct(&quot;aa&quot;, &quot;aab&quot;) -&gt; true</span><br></pre></td></tr></table></figure></p>
-<h3 id="难度"><a href="#难度" class="headerlink" title="难度"></a>难度</h3><p>Easy</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>遍历2个字符串，索引分别为<code>i</code>, <code>j</code>，如果<code>ransomNote[i] == magazine[j]</code>，则<code>i++</code>, <code>j++</code>，否则<code>j++</code>。如果<code>i == len(ransomNote)</code>，则表示能够用<code>magazine</code>的字符组成<code>ransomNote</code>，否则则不能</p>
-<h3 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">canConstruct</span><span class="params">(self, ransomNote, magazine)</span>:</span></span><br><span class="line">        ransomNote = sorted(ransomNote)</span><br><span class="line">        magazine = sorted(magazine)</span><br><span class="line"></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        j = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; len(ransomNote) <span class="keyword">and</span> j &lt; len(magazine):</span><br><span class="line">            <span class="keyword">if</span> ransomNote[i] == magazine[j]:</span><br><span class="line">                j += <span class="number">1</span></span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                j += <span class="number">1</span></span><br><span class="line">   </span><br><span class="line">        <span class="keyword">if</span> i == len(ransomNote):</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> Solution().canConstruct(<span class="string">"a"</span>, <span class="string">"b"</span>) == <span class="keyword">False</span></span><br><span class="line"><span class="keyword">assert</span> Solution().canConstruct(<span class="string">"aa"</span>, <span class="string">"ab"</span>) == <span class="keyword">False</span></span><br><span class="line"><span class="keyword">assert</span> Solution().canConstruct(<span class="string">"aa"</span>, <span class="string">"aab"</span>) == <span class="keyword">True</span></span><br><span class="line"><span class="keyword">assert</span> Solution().canConstruct(<span class="string">"djfjfhjf"</span>, <span class="string">"aaigcbiafifghhdihcfdjjej"</span>) == <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Find the sum of all left leaves in a given binary tree.</p>
+<p><strong>Example:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    3</span><br><span class="line">   / \</span><br><span class="line">  9  20</span><br><span class="line">    /  \</span><br><span class="line">   15   7</span><br><span class="line"></span><br><span class="line">There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.</span><br></pre></td></tr></table></figure></p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>递归遍历，如果为左节点，则打上标记<code>isLeft</code>，如果该节点没有左右子节点，则将该节点值累加到最后的结果中</p>
+<h3 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.left = <span class="keyword">None</span></span><br><span class="line">        self.right = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sumOfLeftLeaves</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        self.result = <span class="number">0</span></span><br><span class="line">        self.traverse(root)</span><br><span class="line">        <span class="keyword">return</span> self.result</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">traverse</span><span class="params">(self, node, isLeft=False)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">and</span> node.left == <span class="keyword">None</span> <span class="keyword">and</span> node.right == <span class="keyword">None</span> <span class="keyword">and</span> isLeft:</span><br><span class="line">            self.result += node.val</span><br><span class="line">        <span class="keyword">if</span> node:</span><br><span class="line">            self.traverse(node.left, <span class="keyword">True</span>)</span><br><span class="line">            self.traverse(node.right)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root = TreeNode(<span class="number">3</span>)</span><br><span class="line">root.left = TreeNode(<span class="number">9</span>)</span><br><span class="line">root.right = TreeNode(<span class="number">20</span>)</span><br><span class="line">root.right.left = TreeNode(<span class="number">15</span>)</span><br><span class="line">root.right.right = TreeNode(<span class="number">7</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> Solution().sumOfLeftLeaves(root) == <span class="number">24</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -316,17 +317,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/01/LeetCode-455-Assign-Cookies/" rel="next" title="[LeetCode]455. Assign Cookies">
-                <i class="fa fa-chevron-left"></i> [LeetCode]455. Assign Cookies
+              <a href="/2017/08/02/LeetCode-383-Ransom-Note/" rel="next" title="[LeetCode]383. Ransom Note">
+                <i class="fa fa-chevron-left"></i> [LeetCode]383. Ransom Note
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/08/LeetCode-404-Sum-of-Left-Leaves/" rel="prev" title="[LeetCode]404. Sum of Left Leaves">
-                [LeetCode]404. Sum of Left Leaves <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

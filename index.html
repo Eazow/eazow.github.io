@@ -243,6 +243,102 @@
             
               
                 
+                <a class="post-title-link" href="/2017/08/08/LeetCode-404-Sum-of-Left-Leaves/" itemprop="url">
+                  [LeetCode]404. Sum of Left Leaves
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-08T15:12:54+08:00" content="2017-08-08">
+              2017-08-08
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Find the sum of all left leaves in a given binary tree.</p>
+<p><strong>Example:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    3</span><br><span class="line">   / \</span><br><span class="line">  9  20</span><br><span class="line">    /  \</span><br><span class="line">   15   7</span><br><span class="line"></span><br><span class="line">There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.</span><br></pre></td></tr></table></figure></p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>递归遍历，如果为左节点，则打上标记<code>isLeft</code>，如果该节点没有左右子节点，则将该节点值累加到最后的结果中</p>
+<h3 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.left = <span class="keyword">None</span></span><br><span class="line">        self.right = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sumOfLeftLeaves</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        self.result = <span class="number">0</span></span><br><span class="line">        self.traverse(root)</span><br><span class="line">        <span class="keyword">return</span> self.result</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">traverse</span><span class="params">(self, node, isLeft=False)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">and</span> node.left == <span class="keyword">None</span> <span class="keyword">and</span> node.right == <span class="keyword">None</span> <span class="keyword">and</span> isLeft:</span><br><span class="line">            self.result += node.val</span><br><span class="line">        <span class="keyword">if</span> node:</span><br><span class="line">            self.traverse(node.left, <span class="keyword">True</span>)</span><br><span class="line">            self.traverse(node.right)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root = TreeNode(<span class="number">3</span>)</span><br><span class="line">root.left = TreeNode(<span class="number">9</span>)</span><br><span class="line">root.right = TreeNode(<span class="number">20</span>)</span><br><span class="line">root.right.left = TreeNode(<span class="number">15</span>)</span><br><span class="line">root.right.right = TreeNode(<span class="number">7</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> Solution().sumOfLeftLeaves(root) == <span class="number">24</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/08/02/LeetCode-383-Ransom-Note/" itemprop="url">
                   [LeetCode]383. Ransom Note
                 </a>
@@ -1094,104 +1190,6 @@
 <h5 id="难度"><a href="#难度" class="headerlink" title="难度"></a>难度</h5><p>Easy</p>
 <h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>用<code>minSum</code>保存最小的索引和，用一个<code>dict</code>记录<code>list1</code>中每个单词对应的索引序号。遍历<code>list2</code>，将值存入<code>word</code>中，计算<code>word</code>在<code>list1</code>和<code>list2</code>中的索引和，如果小于<code>minSum</code>，则替换<code>minSum</code>，并清空结果<code>list</code>，加入该<code>word</code>，如果<code>==minSum</code>，则直接加入<code>word</code></p>
 <h5 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findRestaurant</span><span class="params">(self, list1, list2)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        :type list1: List[str]</span><br><span class="line">        :type list2: List[str]</span><br><span class="line">        :rtype: List[str]</span><br><span class="line">        """</span></span><br><span class="line">        list1Map = &#123;&#125;</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> word <span class="keyword">in</span> list1:</span><br><span class="line">            list1Map[word] = i</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        minSum = sys.maxint</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        restaurants = [] </span><br><span class="line">        <span class="keyword">for</span> word <span class="keyword">in</span> list2:</span><br><span class="line">            <span class="keyword">if</span> word <span class="keyword">in</span> list1Map:</span><br><span class="line">                <span class="keyword">if</span> minSum &gt; list1Map[word]+i:</span><br><span class="line">                    <span class="keyword">print</span> minSum</span><br><span class="line">                    minSum = list1Map[word]+i</span><br><span class="line">                    restaurants = []</span><br><span class="line">                    restaurants.append(word)</span><br><span class="line">                <span class="keyword">elif</span> minSum == list1Map[word]+i:</span><br><span class="line">                    restaurants.append(word)</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> restaurants</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> Solution().findRestaurant([<span class="string">"Shogun"</span>, <span class="string">"Tapioca Express"</span>, <span class="string">"Burger King"</span>, <span class="string">"KFC"</span>], </span><br><span class="line">    [<span class="string">"Piatti"</span>, <span class="string">"The Grill at Torrey Pines"</span>, <span class="string">"Hungry Hunter Steakhouse"</span>, <span class="string">"Shogun"</span>]) == [<span class="string">"Shogun"</span>]</span><br><span class="line"><span class="keyword">assert</span> Solution().findRestaurant([<span class="string">"Shogun"</span>, <span class="string">"Tapioca Express"</span>, <span class="string">"Burger King"</span>, <span class="string">"KFC"</span>], </span><br><span class="line">    [<span class="string">"KFC"</span>, <span class="string">"Shogun"</span>, <span class="string">"Burger King"</span>]) == [<span class="string">"Shogun"</span>]</span><br><span class="line"><span class="keyword">assert</span> Solution().findRestaurant([<span class="string">"Shogun"</span>,<span class="string">"Tapioca Express"</span>,<span class="string">"Burger King"</span>,<span class="string">"KFC"</span>], </span><br><span class="line">    [<span class="string">"KFC"</span>,<span class="string">"Burger King"</span>,<span class="string">"Tapioca Express"</span>,<span class="string">"Shogun"</span>]) == [<span class="string">"KFC"</span>,<span class="string">"Burger King"</span>,<span class="string">"Tapioca Express"</span>,<span class="string">"Shogun"</span>]</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/23/LeetCode-90-Subsets-II/" itemprop="url">
-                  [LeetCode]90. Subsets II
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-23T10:09:37+08:00" content="2016-09-23">
-              2016-09-23
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>Given a collection of integers that might contain duplicates, <strong><em>nums</em></strong>, return all possible subsets.<br><strong>Note:</strong> The solution set must not contain duplicate subsets.<br>For example,<br>If <strong><em>nums</em></strong> = [1,2,2], a solution is:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [2],</span><br><span class="line">  [1],</span><br><span class="line">  [1,2,2],</span><br><span class="line">  [2,2],</span><br><span class="line">  [1,2],</span><br><span class="line">  []</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>设定返回的列表的列表为<code>result</code>。先对数组排序，如果<code>nums[i]!=nums[i-1]</code>，那么就遍历<code>result</code>，复制每个列表为<code>tempList</code>，加入<code>nums[i]</code>，然后将该列表加入<code>result</code>中；如果<code>nums[i]==nums[i-1]</code>，那么记录下加入<code>nums[i-1]</code>前返回列表的大小<code>resultIndex</code>，<code>resultSize</code>为加入<code>nums[i-1]</code>后的大小，对<code>result</code>中从<code>resultIndex</code>至<code>resultSize</code>的列表加入<code>nums[i]</code>，然后将新生成的列表加入<code>result</code></p>
-<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subsetsWithDup</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :rtype: List[List[int]]</span><br><span class="line">        """</span></span><br><span class="line">        result = [[]]</span><br><span class="line">        nums.sort()</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        resultSize = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; len(nums):</span><br><span class="line">            num = nums[i]</span><br><span class="line">            resultIndex = <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> i&gt;<span class="number">0</span> <span class="keyword">and</span> nums[i]==nums[i<span class="number">-1</span>]:</span><br><span class="line">                resultIndex = resultSize;</span><br><span class="line">            resultSize = len(result)</span><br><span class="line">            <span class="keyword">while</span> resultIndex &lt; resultSize:</span><br><span class="line">                tempList = result[resultIndex][:]</span><br><span class="line">                tempList.append(num)</span><br><span class="line">                result.append(tempList)</span><br><span class="line">                resultIndex += <span class="number">1</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> Solution().subsetsWithDup([<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>]) == [[],[<span class="number">1</span>],[<span class="number">2</span>],[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">2</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>]]</span><br></pre></td></tr></table></figure>
           
         
       
