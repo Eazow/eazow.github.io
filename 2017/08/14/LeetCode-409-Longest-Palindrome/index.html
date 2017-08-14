@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="题目Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.
-Examples:12345s = &amp;quot;leetcode&amp;quot;return 0.s = &amp;quot;loveleetcode&amp;quot;,return">
+<meta name="description" content="题目Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+This is case sensitive, for example “Aa” is not cons">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode]387. First Unique Character in a String">
-<meta property="og:url" content="http://yoursite.com/2017/08/14/LeetCode-387-First-Unique-Character-in-a-String/index.html">
+<meta property="og:title" content="[LeetCode]409. Longest Palindrome">
+<meta property="og:url" content="http://yoursite.com/2017/08/14/LeetCode-409-Longest-Palindrome/index.html">
 <meta property="og:site_name" content="Eazow">
-<meta property="og:description" content="题目Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.
-Examples:12345s = &amp;quot;leetcode&amp;quot;return 0.s = &amp;quot;loveleetcode&amp;quot;,return">
-<meta property="og:updated_time" content="2017-08-14T06:41:30.853Z">
+<meta property="og:description" content="题目Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+This is case sensitive, for example “Aa” is not cons">
+<meta property="og:updated_time" content="2017-08-14T09:03:57.708Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode]387. First Unique Character in a String">
-<meta name="twitter:description" content="题目Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.
-Examples:12345s = &amp;quot;leetcode&amp;quot;return 0.s = &amp;quot;loveleetcode&amp;quot;,return">
+<meta name="twitter:title" content="[LeetCode]409. Longest Palindrome">
+<meta name="twitter:description" content="题目Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+This is case sensitive, for example “Aa” is not cons">
 
 
 
@@ -114,7 +114,7 @@ Examples:12345s = &amp;quot;leetcode&amp;quot;return 0.s = &amp;quot;loveleetcod
   };
 </script>
 
-  <title> [LeetCode]387. First Unique Character in a String | Eazow </title>
+  <title> [LeetCode]409. Longest Palindrome | Eazow </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -244,7 +244,7 @@ Examples:12345s = &amp;quot;leetcode&amp;quot;return 0.s = &amp;quot;loveleetcod
             
             
               
-                [LeetCode]387. First Unique Character in a String
+                [LeetCode]409. Longest Palindrome
               
             
           </h1>
@@ -256,7 +256,7 @@ Examples:12345s = &amp;quot;leetcode&amp;quot;return 0.s = &amp;quot;loveleetcod
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-08-14T14:39:15+08:00" content="2017-08-14">
+            <time itemprop="dateCreated" datetime="2017-08-14T17:02:28+08:00" content="2017-08-14">
               2017-08-14
             </time>
           </span>
@@ -284,12 +284,13 @@ Examples:12345s = &amp;quot;leetcode&amp;quot;return 0.s = &amp;quot;loveleetcod
       
 
       
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.</p>
-<p><strong>Examples:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s = &quot;leetcode&quot;</span><br><span class="line">return 0.</span><br><span class="line"></span><br><span class="line">s = &quot;loveleetcode&quot;,</span><br><span class="line">return 2.</span><br></pre></td></tr></table></figure></p>
-<p><strong>Note:</strong> You may assume the string contain only lowercase letters.</p>
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.</p>
+<p>This is case sensitive, for example “Aa” is not considered a palindrome here.</p>
+<p><strong>Note:</strong><br>Assume the length of given string will not exceed 1,010.</p>
+<p><strong>Example:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">&quot;abccccdd&quot;</span><br><span class="line"></span><br><span class="line">Output:</span><br><span class="line">7</span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line">One longest palindrome that can be built is &quot;dccaccd&quot;, whose length is 7.</span><br></pre></td></tr></table></figure></p>
 <h3 id="难度"><a href="#难度" class="headerlink" title="难度"></a>难度</h3><p>Easy</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>先用一个dict统计每个单词出现的次数，然后从头开始检查<code>s</code>的字符，如果字符出现次数为<code>1</code>，则返回该字符的位置; 如果所有字符出现字数都不为<code>1</code>，则返回<code>-1</code></p>
-<h3 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">firstUniqChar</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        """</span></span><br><span class="line">        counter = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> s:</span><br><span class="line">            <span class="keyword">if</span> counter.has_key(c):</span><br><span class="line">                counter[c] += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                counter[c] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s)):</span><br><span class="line">            <span class="keyword">if</span> counter[s[i]] == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> i</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> Solution().firstUniqChar(<span class="string">"leetcode"</span>) == <span class="number">0</span></span><br><span class="line"><span class="keyword">assert</span> Solution().firstUniqChar(<span class="string">"leveleetcode"</span>) == <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>先统计每个字符出现的次数，对于出现偶数次的字符，能全部用于组成回文。对于出现基数次n的字符，能用n-1个字符。如果有出现基数次的字符，最后能单独用一个该字符</p>
+<h3 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestPalindrome</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        :type s: str</span><br><span class="line">        :rtype: int</span><br><span class="line">        """</span></span><br><span class="line">        counter = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> s:</span><br><span class="line">            <span class="keyword">if</span> counter.has_key(c):</span><br><span class="line">                counter[c] += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                counter[c] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        palindrome_length = <span class="number">0</span></span><br><span class="line">        single = <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">for</span> key <span class="keyword">in</span> counter:</span><br><span class="line">            <span class="keyword">if</span> counter[key] % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">                palindrome_length += counter[key]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                palindrome_length += counter[key] - <span class="number">1</span></span><br><span class="line">                single = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> single:</span><br><span class="line">            palindrome_length += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> palindrome_length</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> Solution().longestPalindrome(<span class="string">"abccccdd"</span>) == <span class="number">7</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -319,17 +320,13 @@ Examples:12345s = &amp;quot;leetcode&amp;quot;return 0.s = &amp;quot;loveleetcod
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/11/LeetCode-506-Relative-Ranks/" rel="next" title="[LeetCode]506. Relative Ranks">
-                <i class="fa fa-chevron-left"></i> [LeetCode]506. Relative Ranks
+              <a href="/2017/08/14/LeetCode-387-First-Unique-Character-in-a-String/" rel="next" title="[LeetCode]387. First Unique Character in a String">
+                <i class="fa fa-chevron-left"></i> [LeetCode]387. First Unique Character in a String
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/14/LeetCode-409-Longest-Palindrome/" rel="prev" title="[LeetCode]409. Longest Palindrome">
-                [LeetCode]409. Longest Palindrome <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
