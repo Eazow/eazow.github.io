@@ -243,6 +243,107 @@
             
               
                 
+                <a class="post-title-link" href="/2017/07/31/LeetCode-637-Average-of-Levels-in-Binary-Tree/" itemprop="url">
+                  [LeetCode]637. Average of Levels in Binary Tree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-07-31T15:34:04+08:00" content="2017-07-31">
+              2017-07-31
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h5><p>Given a non-empty binary tree, return the average value of the nodes on each level in the form of an array.</p>
+<p><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">    3</span><br><span class="line">   / \</span><br><span class="line">  9  20</span><br><span class="line">    /  \</span><br><span class="line">   15   7</span><br><span class="line">Output: [3, 14.5, 11]</span><br><span class="line">Explanation:</span><br><span class="line">The average value of nodes on level 0 is 3,  on level 1 is 14.5, and on level 2 is 11. </span><br><span class="line">Hence return [3, 14.5, 11].</span><br></pre></td></tr></table></figure></p>
+<p><strong>Note:</strong></p>
+<ol>
+<li>The range of node’s value is in the range of 32-bit signed integer.</li>
+</ol>
+<h5 id="难度"><a href="#难度" class="headerlink" title="难度"></a>难度</h5><p>Easy</p>
+<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>对二叉树进行深度遍历，将深度level作为参数传递，记录每一级的sum和个数n，最后将sum/n保存到结果列表中即可</p>
+<h5 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.left = <span class="keyword">None</span></span><br><span class="line">        self.right = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">averageOfLevels</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        :type root: TreeNode</span><br><span class="line">        :rtype: List[float]</span><br><span class="line">        """</span></span><br><span class="line">        sums = []</span><br><span class="line">        nums = []</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(node, level)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> node:</span><br><span class="line">                <span class="keyword">if</span> len(sums) &lt;= level:</span><br><span class="line">                    sums.append(<span class="number">0</span>)</span><br><span class="line">                    nums.append(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">                sums[level] += node.val</span><br><span class="line">                nums[level] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                dfs(node.left, level+<span class="number">1</span>)</span><br><span class="line">                dfs(node.right, level+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        dfs(root, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        result = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(sums)):</span><br><span class="line">            result.append(sums[i]/float(nums[i]))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root = TreeNode(<span class="number">3</span>)</span><br><span class="line">root.left = TreeNode(<span class="number">9</span>)</span><br><span class="line">root.right = TreeNode(<span class="number">20</span>)</span><br><span class="line">root.right.left = TreeNode(<span class="number">15</span>)</span><br><span class="line">root.right.right = TreeNode(<span class="number">7</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> Solution().averageOfLevels(root) == [<span class="number">3</span>, <span class="number">14.5</span>, <span class="number">11</span>]</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/07/31/LeetCode-620-Not-Boring-Movies/" itemprop="url">
                   [LeetCode]620. Not Boring Movies
                 </a>
@@ -1251,109 +1352,6 @@
 <p><strong>Input:</strong> numbers={2, 7, 11, 15}, target=9<br><strong>Output:</strong> index1=1, index2=2</p>
 </blockquote>
 <h5 id="C代码"><a href="#C代码" class="headerlink" title="C代码"></a>C代码</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Return an array of size *returnSize.</span><br><span class="line"> * Note: The returned array must be malloced, assume caller calls free().</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span>* <span class="title">twoSum</span><span class="params">(<span class="keyword">int</span>* nums, <span class="keyword">int</span> numsSize, <span class="keyword">int</span> target, <span class="keyword">int</span>* returnSize)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = numsSize<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span>* returnNums = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(left &lt; right) &#123;</span><br><span class="line">        sum = nums[left]+nums[right];</span><br><span class="line">        <span class="keyword">if</span>(sum == target) &#123;</span><br><span class="line">            returnNums = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*<span class="number">2</span>);</span><br><span class="line">            returnNums[<span class="number">0</span>] = left+<span class="number">1</span>;</span><br><span class="line">            returnNums[<span class="number">1</span>] = right+<span class="number">1</span>;</span><br><span class="line">            *returnSize = <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(sum &gt; target)</span><br><span class="line">            right--;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            left++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> returnNums;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line">int* twoSum(int* nums, int numsSize, int target, int* returnSize) &#123;</span><br><span class="line">    int i = 0, j = i+1;</span><br><span class="line">    int* returnNums = NULL;</span><br><span class="line">    for(i=0, j=i+1; i &lt; numsSize-1;) &#123;</span><br><span class="line">        if(nums[i] + nums[j] == target) &#123;</span><br><span class="line">            returnNums = (int *)malloc(sizeof(int) * 2);</span><br><span class="line">            returnNums[0] = i+1;</span><br><span class="line">            returnNums[1] = j+1;</span><br><span class="line">            *returnSize = 2;</span><br><span class="line">            return returnNums;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(nums[i] + nums[j] &lt; target) &#123;</span><br><span class="line">            j++;</span><br><span class="line">            if(j == numsSize) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                j = i+1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j = i+1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return returnNums;</span><br><span class="line">&#125;</span><br><span class="line">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> nums[<span class="number">3</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> returnSize = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span>* returnNums = twoSum(nums, <span class="number">3</span>, <span class="number">6</span>, &amp;returnSize);</span><br><span class="line">    assert(returnNums[<span class="number">0</span>] == <span class="number">1</span>);</span><br><span class="line">    assert(returnNums[<span class="number">1</span>] == <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/19/LeetCode-39-Combination-Sum/" itemprop="url">
-                  [LeetCode]39. Combination Sum
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-19T16:42:04+08:00" content="2016-08-19">
-              2016-08-19
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>Given a set of candidate numbers (<strong><em>C</em></strong>) and a target number (<strong><em>T</em></strong>), find all unique combinations in <strong><em>C</em></strong> where the candidate numbers sums to <strong><em>T</em></strong>.<br>The <strong>same</strong> repeated number may be chosen from <strong><em>C</em></strong> unlimited number of times.</p>
-<p><strong>Note:</strong></p>
-<ul>
-<li>All numbers (including target) will be positive integers.</li>
-<li>The solution set must not contain duplicate combinations.</li>
-</ul>
-<p>For example, given candidate set [2, 3, 6, 7]<br> and target 7,<br>A solution set is:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [7],</span><br><span class="line">  [2, 2, 3]</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h5 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h5><p>利用栈，如果要入栈的数加上已入栈的数的和小于target, 则入栈；如果等于target，则复制该栈，加入返回结果，然后从栈取出一个数，取其下一个数准备入栈；如果大于target, 则从栈取出一个数，取其下一个数准备入栈。注意一些边界条件的判断</p>
-<h5 id="Python代码"><a href="#Python代码" class="headerlink" title="Python代码"></a>Python代码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSum</span><span class="params">(self, candidates, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">        :type candidates: List[int]</span><br><span class="line">        :type tatget: int</span><br><span class="line">        :rtype List[List[int]]</span><br><span class="line">        """</span></span><br><span class="line">        nums = []</span><br><span class="line">        indexes = []</span><br><span class="line">        returnLists = []</span><br><span class="line">        sum = <span class="number">0</span></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        candidates.sort()</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            <span class="keyword">while</span> i &gt;= len(candidates):</span><br><span class="line">                <span class="keyword">if</span> len(nums) == <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span> returnLists</span><br><span class="line">                sum -= nums.pop()</span><br><span class="line">                i = indexes.pop()+<span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> sum + candidates[i] &lt; target:</span><br><span class="line">                nums.append(candidates[i])</span><br><span class="line">                indexes.append(i)</span><br><span class="line">                sum += candidates[i]</span><br><span class="line">            <span class="keyword">elif</span> sum + candidates[i] &gt; target:</span><br><span class="line">                <span class="keyword">if</span> len(nums) &gt; <span class="number">0</span>:</span><br><span class="line">                    sum -= nums.pop()</span><br><span class="line">                    i = indexes.pop()+<span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">return</span> returnLists</span><br><span class="line">            <span class="keyword">elif</span> sum + candidates[i] == target:</span><br><span class="line">                newNums = nums[:]</span><br><span class="line">                newNums.append(candidates[i])</span><br><span class="line">                returnLists.append(newNums)</span><br><span class="line">                <span class="keyword">if</span> len(nums) &gt; <span class="number">0</span>:</span><br><span class="line">                    sum -= nums.pop()</span><br><span class="line">                    i = indexes.pop()+<span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> Solution().combinationSum([<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>], <span class="number">7</span>)==[[<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">3</span>,<span class="number">4</span>]]</span><br><span class="line"><span class="keyword">assert</span> Solution().combinationSum([<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>], <span class="number">7</span>)==[[<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">7</span>]]</span><br><span class="line"><span class="keyword">assert</span> Solution().combinationSum([<span class="number">2</span>], <span class="number">1</span>) == []</span><br></pre></td></tr></table></figure>
           
         
       
