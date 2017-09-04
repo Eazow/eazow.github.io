@@ -243,6 +243,106 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/03/LeetCode-144-Binary-Tree-Preorder-Traversal/" itemprop="url">
+                  [LeetCode]144. Binary Tree Preorder Traversal
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-03T17:41:06+08:00" content="2016-06-03">
+              2016-06-03
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>Given a binary tree, return the <em>preorder</em> traversal of its nodes’ values.</p>
+<p>For example:<br>Given binary tree <code>{1,#,2,3}</code>,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1 </span><br><span class="line"> \</span><br><span class="line">  2</span><br><span class="line"> / </span><br><span class="line">3</span><br></pre></td></tr></table></figure></p>
+<p>return <code>[1,2,3]</code>.</p>
+<p><strong>Note:</strong> Recursive solution is trivial, could you do it iteratively?</p>
+</blockquote>
+<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>前序遍历二叉树，不用递归的方法，就需要借助栈了。<br>首先将root入栈，然后取出，先将<strong>右子节点</strong>压入栈，再讲<strong>左子节点</strong>压入栈。然后取出栈的节点，压入该节点的右、左子节点，循环直到栈为空即可。</p>
+<h5 id="c代码"><a href="#c代码" class="headerlink" title="c代码"></a>c代码</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> TreeNode &#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="keyword">struct</span> TreeNode* left;</span><br><span class="line">    <span class="keyword">struct</span> TreeNode* right;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Return an array of size *returnSize.</span><br><span class="line"> * Note: The returned array must be malloced, assume caller calls free().</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span>* <span class="title">preorderTraversal</span><span class="params">(<span class="keyword">struct</span> TreeNode* root, <span class="keyword">int</span>* returnSize)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *vals = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * <span class="number">1000</span>);</span><br><span class="line">    <span class="keyword">int</span> valsTop = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">struct</span> TreeNode* node = root;</span><br><span class="line">    <span class="keyword">struct</span> TreeNode** nodes = (<span class="keyword">struct</span> TreeNode **)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> TreeNode *) * <span class="number">1000</span>);</span><br><span class="line">    <span class="keyword">int</span> nodesTop = <span class="number">0</span>;</span><br><span class="line">    nodes[nodesTop++] = root;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(nodesTop &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        node = nodes[--nodesTop];</span><br><span class="line">        vals[valsTop++] = node-&gt;val;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(node-&gt;right)</span><br><span class="line">            nodes[nodesTop++] = node-&gt;right;</span><br><span class="line">        <span class="keyword">if</span>(node-&gt;left)</span><br><span class="line">            nodes[nodesTop++] = node-&gt;left;</span><br><span class="line">    &#125;</span><br><span class="line">    *returnSize = valsTop;</span><br><span class="line">    <span class="keyword">return</span> vals;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">struct</span> TreeNode* root = (<span class="keyword">struct</span> TreeNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> TreeNode));</span><br><span class="line">    root-&gt;val = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">struct</span> TreeNode* node1_2 = (<span class="keyword">struct</span> TreeNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> TreeNode));</span><br><span class="line">    node1_2-&gt;val = <span class="number">2</span>;</span><br><span class="line">    root-&gt;left = <span class="literal">NULL</span>;</span><br><span class="line">    root-&gt;right = node1_2;</span><br><span class="line">    <span class="keyword">struct</span> TreeNode* node2_3 = (<span class="keyword">struct</span> TreeNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> TreeNode));</span><br><span class="line">    node2_3-&gt;val = <span class="number">3</span>;</span><br><span class="line">    node1_2-&gt;left = node2_3;</span><br><span class="line">    node1_2-&gt;right = <span class="literal">NULL</span>;</span><br><span class="line">    node2_3-&gt;left = <span class="literal">NULL</span>;</span><br><span class="line">    node2_3-&gt;right = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> returnSize = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span>* vals = preorderTraversal(root, &amp;returnSize);</span><br><span class="line">    assert(returnSize == <span class="number">3</span>);</span><br><span class="line">    assert(vals[<span class="number">0</span>] == <span class="number">1</span>);</span><br><span class="line">    assert(vals[<span class="number">1</span>] == <span class="number">2</span>);</span><br><span class="line">    assert(vals[<span class="number">2</span>] == <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/03/LeetCode-338-Counting-Bits/" itemprop="url">
                   [LeetCode]338. Counting Bits
                 </a>
