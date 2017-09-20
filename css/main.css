@@ -1549,7 +1549,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fff;
+  background: #200b60;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2345,7 +2345,7 @@ hr {
   margin-top: 40px;
 }
 .posts-expand .post-footer {
-  border-bottom: 1px dashed #ddd;
+  border-bottom: 2px dashed #ddd;
 }
 .post-more-link {
   margin-top: 20px;
