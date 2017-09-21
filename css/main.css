@@ -1227,7 +1227,7 @@ pre .javascript .function {
 .posts-expand .post-title-link {
   display: inline-block;
   position: relative;
-  color: #555;
+  color: #333;
   border-bottom: none;
   line-height: 1.2;
   vertical-align: top;
@@ -1549,7 +1549,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9608a7;
+  background: #ffd0fc;
 }
 .links-of-blogroll {
   font-size: 13px;
