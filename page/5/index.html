@@ -111,6 +111,196 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://eazow.com/LeetCode-599-Minimum-Index-Sum-of-Two-lists/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Eazow">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eazow">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Eazow">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/LeetCode-599-Minimum-Index-Sum-of-Two-lists/" class="post-title-link" itemprop="url">[LeetCode]599. Minimum Index Sum of Two lists</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-07-26 12:05:16" itemprop="dateCreated datePublished" datetime="2017-07-26T12:05:16+08:00">2017-07-26</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h5 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h5><blockquote>
+<p>Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by strings.</p>
+</blockquote>
+<blockquote>
+<p>You need to help them find out their <strong>common interest</strong> with the <strong>least list index sum</strong>. If there is a choice tie between answers, output all of them with no order requirement. You could assume there always exists an answer.</p>
+</blockquote>
+<blockquote>
+<p><strong>Example 1:</strong></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">[&quot;Shogun&quot;, &quot;Tapioca Express&quot;, &quot;Burger King&quot;, &quot;KFC&quot;]</span><br><span class="line">[&quot;Piatti&quot;, &quot;The Grill at Torrey Pines&quot;, &quot;Hungry Hunter Steakhouse&quot;, &quot;Shogun&quot;]</span><br><span class="line">Output: [&quot;Shogun&quot;]</span><br><span class="line">Explanation: The only restaurant they both like is &quot;Shogun&quot;.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Example 2:</strong></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">[&quot;Shogun&quot;, &quot;Tapioca Express&quot;, &quot;Burger King&quot;, &quot;KFC&quot;]</span><br><span class="line">[&quot;KFC&quot;, &quot;Shogun&quot;, &quot;Burger King&quot;]</span><br><span class="line">Output: [&quot;Shogun&quot;]</span><br><span class="line">Explanation: The restaurant they both like and have the least index sum is &quot;Shogun&quot; with index sum 1 (0+1).</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Note:</strong></p>
+</blockquote>
+<ol>
+<li>The length of both lists will be in the range of [1, 1000].</li>
+<li>The length of strings in both lists will be in the range of [1, 30].</li>
+<li>The index is starting from 0 to the list length minus 1.</li>
+<li>No duplicates in both lists.</li>
+</ol>
+<h5 id="难度"><a href="#难度" class="headerlink" title="难度"></a>难度</h5><p>Easy</p>
+<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>用<code>minSum</code>保存最小的索引和，用一个<code>dict</code>记录<code>list1</code>中每个单词对应的索引序号。遍历<code>list2</code>，将值存入<code>word</code>中，计算<code>word</code>在<code>list1</code>和<code>list2</code>中的索引和，如果小于<code>minSum</code>，则替换<code>minSum</code>，并清空结果<code>list</code>，加入该<code>word</code>，如果<code>==minSum</code>，则直接加入<code>word</code></p>
+<h5 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">findRestaurant</span>(<span class="params">self, list1, list2</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        :type list1: List[str]</span></span><br><span class="line"><span class="string">        :type list2: List[str]</span></span><br><span class="line"><span class="string">        :rtype: List[str]</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        list1Map = &#123;&#125;</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> word <span class="keyword">in</span> list1:</span><br><span class="line">            list1Map[word] = i</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        minSum = sys.maxint</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        restaurants = [] </span><br><span class="line">        <span class="keyword">for</span> word <span class="keyword">in</span> list2:</span><br><span class="line">            <span class="keyword">if</span> word <span class="keyword">in</span> list1Map:</span><br><span class="line">                <span class="keyword">if</span> minSum &gt; list1Map[word]+i:</span><br><span class="line">                    <span class="built_in">print</span> minSum</span><br><span class="line">                    minSum = list1Map[word]+i</span><br><span class="line">                    restaurants = []</span><br><span class="line">                    restaurants.append(word)</span><br><span class="line">                <span class="keyword">elif</span> minSum == list1Map[word]+i:</span><br><span class="line">                    restaurants.append(word)</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> restaurants</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> Solution().findRestaurant([<span class="string">&quot;Shogun&quot;</span>, <span class="string">&quot;Tapioca Express&quot;</span>, <span class="string">&quot;Burger King&quot;</span>, <span class="string">&quot;KFC&quot;</span>], </span><br><span class="line">    [<span class="string">&quot;Piatti&quot;</span>, <span class="string">&quot;The Grill at Torrey Pines&quot;</span>, <span class="string">&quot;Hungry Hunter Steakhouse&quot;</span>, <span class="string">&quot;Shogun&quot;</span>]) == [<span class="string">&quot;Shogun&quot;</span>]</span><br><span class="line"><span class="keyword">assert</span> Solution().findRestaurant([<span class="string">&quot;Shogun&quot;</span>, <span class="string">&quot;Tapioca Express&quot;</span>, <span class="string">&quot;Burger King&quot;</span>, <span class="string">&quot;KFC&quot;</span>], </span><br><span class="line">    [<span class="string">&quot;KFC&quot;</span>, <span class="string">&quot;Shogun&quot;</span>, <span class="string">&quot;Burger King&quot;</span>]) == [<span class="string">&quot;Shogun&quot;</span>]</span><br><span class="line"><span class="keyword">assert</span> Solution().findRestaurant([<span class="string">&quot;Shogun&quot;</span>,<span class="string">&quot;Tapioca Express&quot;</span>,<span class="string">&quot;Burger King&quot;</span>,<span class="string">&quot;KFC&quot;</span>], </span><br><span class="line">    [<span class="string">&quot;KFC&quot;</span>,<span class="string">&quot;Burger King&quot;</span>,<span class="string">&quot;Tapioca Express&quot;</span>,<span class="string">&quot;Shogun&quot;</span>]) == [<span class="string">&quot;KFC&quot;</span>,<span class="string">&quot;Burger King&quot;</span>,<span class="string">&quot;Tapioca Express&quot;</span>,<span class="string">&quot;Shogun&quot;</span>]</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://eazow.com/leetcode/90-subsets-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Eazow">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eazow">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Eazow">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/leetcode/90-subsets-2/" class="post-title-link" itemprop="url">[LeetCode]90. Subsets II</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-09-23 10:09:37" itemprop="dateCreated datePublished" datetime="2016-09-23T10:09:37+08:00">2016-09-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Coding/" itemprop="url" rel="index"><span itemprop="name">Coding</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p>Given a collection of integers that might contain duplicates, <em><strong>nums</strong></em>, return all possible subsets.<br><strong>Note:</strong> The solution set must not contain duplicate subsets.<br>For example,<br>If <em><strong>nums</strong></em> &#x3D; [1,2,2], a solution is:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [2],</span><br><span class="line">  [1],</span><br><span class="line">  [1,2,2],</span><br><span class="line">  [2,2],</span><br><span class="line">  [1,2],</span><br><span class="line">  []</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>设定返回的列表的列表为<code>result</code>。先对数组排序，如果<code>nums[i]!=nums[i-1]</code>，那么就遍历<code>result</code>，复制每个列表为<code>tempList</code>，加入<code>nums[i]</code>，然后将该列表加入<code>result</code>中；如果<code>nums[i]==nums[i-1]</code>，那么记录下加入<code>nums[i-1]</code>前返回列表的大小<code>resultIndex</code>，<code>resultSize</code>为加入<code>nums[i-1]</code>后的大小，对<code>result</code>中从<code>resultIndex</code>至<code>resultSize</code>的列表加入<code>nums[i]</code>，然后将新生成的列表加入<code>result</code></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">subsetsWithDup</span>(<span class="params">self, nums</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        result = [[]]</span><br><span class="line">        nums.sort()</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        resultSize = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(nums):</span><br><span class="line">            num = nums[i]</span><br><span class="line">            resultIndex = <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> i&gt;<span class="number">0</span> <span class="keyword">and</span> nums[i]==nums[i-<span class="number">1</span>]:</span><br><span class="line">                resultIndex = resultSize;</span><br><span class="line">            resultSize = <span class="built_in">len</span>(result)</span><br><span class="line">            <span class="keyword">while</span> resultIndex &lt; resultSize:</span><br><span class="line">                tempList = result[resultIndex][:]</span><br><span class="line">                tempList.append(num)</span><br><span class="line">                result.append(tempList)</span><br><span class="line">                resultIndex += <span class="number">1</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> Solution().subsetsWithDup([<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>]) == [[],[<span class="number">1</span>],[<span class="number">2</span>],[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">2</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>]]</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://eazow.com/LeetCode-201-Bitwise-AND-of-Numbers-Range/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -809,253 +999,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://eazow.com/hexo-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Eazow">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eazow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Eazow">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/hexo-blog/" class="post-title-link" itemprop="url">在Github上用Hexo搭建个人Blog</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-03-25 10:01:06" itemprop="dateCreated datePublished" datetime="2016-03-25T10:01:06+08:00">2016-03-25</time>
-    </span>
-
-  
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1. 创建仓库"></a>1. 创建仓库</h4><p>在github上创建名称为username.github.io仓库</p>
-<h4 id="2-Clone"><a href="#2-Clone" class="headerlink" title="2. Clone"></a>2. Clone</h4><p>将仓库clone到本地</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/username/username.github.io</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="3-Hello-World"><a href="#3-Hello-World" class="headerlink" title="3. Hello World"></a>3. Hello World</h4><p>创建<code>index.html</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd username.github.io</span><br><span class="line">$ echo &quot;Hello World&quot; &gt; index.html</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="4-push"><a href="#4-push" class="headerlink" title="4. push"></a>4. push</h4><p>提交代码并<code>push</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add --all</span><br><span class="line">$ git commit -m &quot;Initial commit&quot;</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="5-验证"><a href="#5-验证" class="headerlink" title="5. 验证"></a>5. 验证</h4><p>访问username.github.io，这样就能看到Hello World了</p>
-<h4 id="6-域名映射"><a href="#6-域名映射" class="headerlink" title="6. 域名映射"></a>6. 域名映射</h4><p>将域名映射到username.github.io</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ echo &quot;www.yourdomain.com&quot; &gt; CNAME</span><br><span class="line">$ git commit -m &quot;Create CNAME&quot;</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
-<p>在域名管理添加一条CNAME记录，将<a target="_blank" rel="noopener" href="http://www.yourdomain.com指向username.github.io/">www.yourdomain.com指向username.github.io</a></p>
-<h4 id="7-安装Hexo"><a href="#7-安装Hexo" class="headerlink" title="7. 安装Hexo"></a>7. 安装Hexo</h4><h5 id="7-1-什么是Hexo"><a href="#7-1-什么是Hexo" class="headerlink" title="7.1 什么是Hexo"></a>7.1 什么是Hexo</h5><p>Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds.</p>
-<h5 id="7-2-安装Git"><a href="#7-2-安装Git" class="headerlink" title="7.2 安装Git"></a>7.2 安装Git</h5><h5 id="7-3-安装Node-js"><a href="#7-3-安装Node-js" class="headerlink" title="7.3 安装Node.js"></a>7.3 安装Node.js</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</span><br><span class="line">$ nvm install 4</span><br></pre></td></tr></table></figure>
-<h5 id="7-4-安装Hexo"><a href="#7-4-安装Hexo" class="headerlink" title="7.4 安装Hexo"></a>7.4 安装Hexo</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>这样就可以通过localhost:4000访问了</p>
-<h5 id="7-5-部署到github"><a href="#7-5-部署到github" class="headerlink" title="7.5 部署到github"></a>7.5 部署到github</h5><p>安装hexo-deployer-git</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>修改<code>_config.yml</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &lt;repository url&gt;</span><br></pre></td></tr></table></figure>
-
-<p>部署到github</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>但是部署后会覆盖掉github上的CNAME和README.md，需要在hexo的source目录添加CNAME和README.md，但是执行hexo generate后README.md会生成README.html，因此需要配置下，不让其渲染README.md。<br>修改Hexo目录下的_config.yml</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip_render: README.md</span><br></pre></td></tr></table></figure>
-
-<p>然后运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>这样就部署到github上了，并且不会覆盖掉已写好的CNAME和README.md了。</p>
-<h5 id="7-6-写blog"><a href="#7-6-写blog" class="headerlink" title="7.6 写blog"></a>7.6 写blog</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;Markdown&quot;</span><br></pre></td></tr></table></figure>
-<p>会在<code>source/_posts/</code>目录下生成<code>Markdown.md</code>文件，编辑该文件后</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a target="_blank" rel="noopener" href="https://github.io/">https://github.io</a><br><a target="_blank" rel="noopener" href="https://hexo.io/">https://hexo.io</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://eazow.com/linux-kernel/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Eazow">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eazow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Eazow">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/linux-kernel/" class="post-title-link" itemprop="url">编译Linux内核增加系统调用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2008-02-29 18:50:36" itemprop="dateCreated datePublished" datetime="2008-02-29T18:50:36+08:00">2008-02-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>折腾了差不多一、两天，终于通过虚拟机在Ubuntu下完成了通过编译内核，增加系统调用的实验，在此与大家分享一下，希望能够对看到的xdjm们或多或少地提供些帮助！</p>
-<p>期间我换了几个内核版本，make了几次，浪费了大量的时间，主要还是对里面的文件不了解，找不到网上说的文件就很郁闷，甚至有些烦躁，最后换了个有同学成功的版本，终于坚持下来完成了！</p>
-<p>其中make modules很费时间，而且用的是虚拟机，那就更慢了，估计2小时左右吧，当然这两小时也不闲着，外面阳光灿烂，出去好好的打了几次球 ^_^，劳逸结合！正当我打累了回来它差不多就好了，Ubuntu真给面子啊！</p>
-<p>我用的 Ubuntu 7.10 ，编译的内核版本是2.6.23.12(更多版本可以到<a target="_blank" rel="noopener" href="http://www.kernel.org/">http://www.kernel.org</a>去下载)</p>
-<h4 id="内核解压"><a href="#内核解压" class="headerlink" title="内核解压"></a>内核解压</h4><p>将内核包解压到&#x2F;usr&#x2F;src下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar jvxf linux-2.6.23.12.tar.gz2</span><br></pre></td></tr></table></figure>
-<p>或者是</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf linux-2.6.23.12.tar.gz</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="增加系统调用"><a href="#增加系统调用" class="headerlink" title="增加系统调用"></a>增加系统调用</h4><p>修改sys.c</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/src/linux-2.6.23.12</span><br><span class="line">$ vim kernel/sys.c</span><br></pre></td></tr></table></figure>
-
-<p>添加一个简单的调用</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">asmlinkage <span class="type">int</span> <span class="title function_">sys_mysyscall</span><span class="params">(<span class="type">int</span> num)</span> &#123;</span><br><span class="line">    printk(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>修改系统调用表，syscall_table.S：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/src/linux-2.6.23.12/arch/i386/kernel</span><br><span class="line">//（没有i386文件夹的版本的貌似是进x86）</span><br><span class="line">$ vim syscall_table.S</span><br></pre></td></tr></table></figure>
-<p>在最后加上</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.long sys_mysyscall</span><br></pre></td></tr></table></figure>
-
-
-<p>增加新系统调用号，修改&#x2F;usr&#x2F;include&#x2F;asm-i386&#x2F;unisted.h, 添加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define _ _NR_mysyscall 325</span><br></pre></td></tr></table></figure>
-
-<p>修改&#x2F;usr&#x2F;src&#x2F;linux-2.6.23.12&#x2F;include&#x2F;asm-i386&#x2F;unistd.h<br>添加<code>#define __NR_mysyscall 325</code>, 并将里面的<code>#define NR_syscall 325</code>改为326, 增加更多的系统调用依此类推</p>
-<p>开始编译内核了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/src/linux-2.6.23.12</span><br><span class="line">$ make menuconfig</span><br><span class="line">$ make bzImage</span><br><span class="line">$ make modules</span><br><span class="line">$ make modules_install</span><br><span class="line">$ cp arch/i386/boot/bzImage /boot/vmlinuz-2.6.23.12 $ mkinitramfs -o initrd.img-2.6.23.12 2.6.23.12</span><br></pre></td></tr></table></figure>
-<p>&#x2F;lib&#x2F;modules会多出2.6.23.12这个文件夹</p>
-<p>修改grub：</p>
-<p>第5步后&#x2F;boot 下会多出两个文件 vmlinuz-2.6.23.12 initrd.img-2.6.23.12<br>修改<code>/boot/grub/menu.lst</code>, 没有menu.lst可能会是grub.conf<br>仿照里面的格式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title Ubuntu 7.10, kernel 2.6.22-14-generic</span><br><span class="line">root (hd0,0)</span><br><span class="line">kernel /boot/vmlinuz-2.6.22-14-generic root=UUID=e2478f9d-7f5d-458f-b017-43458a8f62ea ro quiet</span><br><span class="line">splash</span><br><span class="line">initrd /boot/initrd.img-2.6.22-14-generic </span><br><span class="line">quiet</span><br></pre></td></tr></table></figure>
-<p>添加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title Ubuntu 7.10, kernel 2.6.23-12</span><br><span class="line">root (hd0,0) </span><br><span class="line">kernel /boot/vmlinuz-2.6.23.12 root=UUID=e2478f9d-7f5d-458f-b017-43458a8f62ea ro quiet</span><br><span class="line">splash </span><br><span class="line">initrd /boot/initrd-2.6.23.12.img</span><br><span class="line">quiet</span><br></pre></td></tr></table></figure>
-<p>将hiddenmenu注释掉 即#hiddenmenu</p>
-<p>重启，导入新的内核，测试，新建test.c</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;linux/unistd.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;asm/unistd.h&gt;</span><br><span class="line"></span><br><span class="line">#define __NR_mycall     325 </span><br><span class="line">#define __NR_myfilecopy     326    //增加的拷贝文件的系统调用</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123; </span><br><span class="line">    syscall(325, 6);    //6为系统调用的参数，多参数的类推</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>最后，预祝你们圆满成功！！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>
@@ -1078,13 +1023,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">97k</span>
+    <span title="Symbols count total">101k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:28</span>
+    <span title="Reading time total">1:32</span>
   </span>
 </div>
 <div class="busuanzi-count">
