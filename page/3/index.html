@@ -111,6 +111,91 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://eazow.com/LeetCode-415-Add-Strings/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Eazow">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eazow">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Eazow">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/LeetCode-415-Add-Strings/" class="post-title-link" itemprop="url">[LeetCode]415. Add Strings</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-09-01 15:48:15" itemprop="dateCreated datePublished" datetime="2017-09-01T15:48:15+08:00">2017-09-01</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given two non-negative integers <code>num1</code> and <code>num2</code> represented as string, return the sum of <code>num1</code> and <code>num2</code>.</p>
+<p><strong>Note:</strong></p>
+<ol>
+<li>The length of both num1 and num2 is &lt; 5100.</li>
+<li>Both num1 and num2 contains only digits 0-9.</li>
+<li>Both num1 and num2 does not contain any leading zero.</li>
+<li>You <strong>must not use any built-in BigInteger library or convert the inputs to integer</strong> directly.</li>
+</ol>
+<h3 id="难度"><a href="#难度" class="headerlink" title="难度"></a>难度</h3><p>Easy</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>从低位到高位相加，每一位的结果为除10取余，如果有进位1，则在下一位求和的时候需要+1，循环处理即可。注意最高位相加后如果有进位，需要在结果的最前面补1</p>
+<h3 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">addStrings</span>(<span class="params">self, num1, num2</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        :type num1: str</span></span><br><span class="line"><span class="string">        :type num2: str</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        i = <span class="built_in">len</span>(num1) - <span class="number">1</span></span><br><span class="line">        j = <span class="built_in">len</span>(num2) - <span class="number">1</span></span><br><span class="line">        num = <span class="string">&quot;&quot;</span></span><br><span class="line">        carry = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &gt;= <span class="number">0</span> <span class="keyword">or</span> j &gt;= <span class="number">0</span>:</span><br><span class="line">            result = carry</span><br><span class="line">            <span class="keyword">if</span> i &gt;= <span class="number">0</span>:</span><br><span class="line">                result += <span class="built_in">int</span>(num1[i])</span><br><span class="line">            <span class="keyword">if</span> j &gt;= <span class="number">0</span>:</span><br><span class="line">                result += <span class="built_in">int</span>(num2[j])</span><br><span class="line">            <span class="keyword">if</span> result &gt;= <span class="number">10</span>:</span><br><span class="line">                carry = <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                carry = <span class="number">0</span></span><br><span class="line">            num = <span class="built_in">str</span>(result % <span class="number">10</span>) + num</span><br><span class="line">            i -= <span class="number">1</span></span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> carry == <span class="number">1</span>:</span><br><span class="line">            num = <span class="string">&quot;1&quot;</span> + num</span><br><span class="line">        <span class="keyword">return</span> num</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> Solution().addStrings(<span class="string">&quot;111&quot;</span>, <span class="string">&quot;234965&quot;</span>) == <span class="string">&quot;235076&quot;</span></span><br><span class="line"><span class="keyword">assert</span> Solution().addStrings(<span class="string">&quot;999&quot;</span>, <span class="string">&quot;1&quot;</span>) == <span class="string">&quot;1000&quot;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://eazow.com/LeetCode-543-Diameter-of-Binary-Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -860,91 +945,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://eazow.com/LeetCode-506-Relative-Ranks/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Eazow">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eazow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Eazow">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/LeetCode-506-Relative-Ranks/" class="post-title-link" itemprop="url">[LeetCode]506. Relative Ranks</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2017-08-11 23:10:01" itemprop="dateCreated datePublished" datetime="2017-08-11T23:10:01+08:00">2017-08-11</time>
-    </span>
-
-  
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given scores of <strong>N</strong> athletes, find their relative ranks and the people with the top three highest scores, who will be awarded medals: “Gold Medal”, “Silver Medal” and “Bronze Medal”.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: [5, 4, 3, 2, 1]</span><br><span class="line">Output: [&quot;Gold Medal&quot;, &quot;Silver Medal&quot;, &quot;Bronze Medal&quot;, &quot;4&quot;, &quot;5&quot;]</span><br><span class="line">Explanation: The first three athletes got the top three highest scores, so they got &quot;Gold Medal&quot;, </span><br><span class="line">&quot;Silver Medal&quot; and &quot;Bronze Medal&quot;. </span><br><span class="line">For the left two athletes, you just need to output their relative ranks according to their scores.</span><br></pre></td></tr></table></figure>
-<p><strong>Note:</strong></p>
-<ol>
-<li>N is a positive integer and won’t exceed 10,000.</li>
-<li>All the scores of athletes are guaranteed to be unique.</li>
-</ol>
-<h3 id="难度"><a href="#难度" class="headerlink" title="难度"></a>难度</h3><p>Easy</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>对数组排序，同时对其索引也排序，即排序后元素之前的索引被记录。排序后的元素对应的rank位置分别为<code>Gold Medal, Silver Medal, Bronze Medal, 4, 5...</code>，然后将该rank赋值给排序前索引对应的位置即可</p>
-<h3 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def findRelativeRanks(self, nums):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :rtype: List[str]</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        numsStrs = []</span><br><span class="line">        for i in range(len(nums)):</span><br><span class="line">            numsStrs.append(str(nums[i])+&#x27;-&#x27;+str(i))</span><br><span class="line"></span><br><span class="line">        numsStrs = sorted(numsStrs, lambda x,y: cmp(int(x.split(&quot;-&quot;)[0]), int(y.split(&quot;-&quot;)[0])))[::-1]</span><br><span class="line">        ranks = [&#x27;&#x27;] * len(nums)</span><br><span class="line">        for i in range(len(numsStrs)):</span><br><span class="line">            index = int(numsStrs[i].split(&quot;-&quot;)[1])</span><br><span class="line">            if i == 0:</span><br><span class="line">                ranks[index] = &quot;Gold Medal&quot;</span><br><span class="line">            elif i == 1:</span><br><span class="line">                ranks[index] = &quot;Silver Medal&quot;</span><br><span class="line">            elif i == 2:</span><br><span class="line">                ranks[index] = &quot;Bronze Medal&quot;</span><br><span class="line">            else:</span><br><span class="line">                ranks[index] = str(i+1)</span><br><span class="line">        return ranks</span><br><span class="line"></span><br><span class="line">assert Solution().findRelativeRanks([1, 2, 3, 4, 5]) == [&quot;5&quot;, &quot;4&quot;, &quot;Bronze Medal&quot;, &quot;Silver Medal&quot;, &quot;Gold Medal&quot;]</span><br><span class="line">assert Solution().findRelativeRanks([10, 3, 8, 9, 4]) == [&quot;Gold Medal&quot;, &quot;5&quot;, &quot;Bronze Medal&quot;, &quot;Silver Medal&quot;, &quot;4&quot;]</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -969,13 +969,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">101k</span>
+    <span title="Symbols count total">108k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:32</span>
+    <span title="Reading time total">1:38</span>
   </span>
 </div>
 <div class="busuanzi-count">

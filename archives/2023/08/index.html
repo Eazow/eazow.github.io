@@ -23,14 +23,14 @@
 
 
 
-<link rel="canonical" href="http://eazow.com/LeetCode-627-Swap-Salary/">
+<link rel="canonical" href="http://eazow.com/archives/2023/08/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en-US","comments":true,"permalink":"http://eazow.com/LeetCode-627-Swap-Salary/","path":"LeetCode-627-Swap-Salary/","title":"[LeetCode]627. Swap Salary"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en-US","comments":"","permalink":"","path":"archives/2023/08/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>[LeetCode]627. Swap Salary | Eazow</title>
+<title>Archive | Eazow</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NHS1WWDHJE"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-NHS1WWDHJE","only_pageview":false}</script>
@@ -63,7 +63,7 @@
 
     <a href="/" class="brand" rel="start">
       <!--i class="logo-line"></i-->
-      <p class="site-title">Eazow</p>
+      <h1 class="site-title">Eazow</h1>
       <!--i class="logo-line"></i-->
     </a>
       <p class="site-subtitle" itemprop="description">Coding</p>
@@ -101,137 +101,51 @@
 </noscript>
 
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner archive posts-collapse">
 
 
   
-
-
-<div class="post-block">
   
   
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        
+        <span class="collection-header">Nice! 53 posts in total. Keep on posting.</span>
+      </div>
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en-US">
-    <link itemprop="mainEntityOfPage" href="http://eazow.com/LeetCode-627-Swap-Salary/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Eazow">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eazow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="[LeetCode]627. Swap Salary | Eazow">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          [LeetCode]627. Swap Salary
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2017-07-29 14:49:57" itemprop="dateCreated datePublished" datetime="2017-07-29T14:49:57+08:00">2017-07-29</time>
-    </span>
-
-  
-    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">Views: </span>
-      <span id="busuanzi_value_page_pv"></span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h5 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h5><p>Given a table <code>salary</code>, such as the one below, that has m&#x3D;male and f&#x3D;female values. Swap all f and m values (i.e., change all f values to m and vice versa) with a single update query and no intermediate temp table.</p>
-<p>For example:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">| id | name | sex | salary |</span><br><span class="line">|----|------|-----|--------|</span><br><span class="line">| 1  | A    | m   | 2500   |</span><br><span class="line">| 2  | B    | f   | 1500   |</span><br><span class="line">| 3  | C    | m   | 5500   |</span><br><span class="line">| 4  | D    | f   | 500    |</span><br></pre></td></tr></table></figure>
-<p>After running your query, the above salary table should have the following rows:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">| id | name | sex | salary |</span><br><span class="line">|----|------|-----|--------|</span><br><span class="line">| 1  | A    | f   | 2500   |</span><br><span class="line">| 2  | B    | m   | 1500   |</span><br><span class="line">| 3  | C    | f   | 5500   |</span><br><span class="line">| 4  | D    | m   | 500    |</span><br></pre></td></tr></table></figure>
-
-<h5 id="难度"><a href="#难度" class="headerlink" title="难度"></a>难度</h5><p>Easy</p>
-<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>需要用到sql里的if</p>
-<h5 id="sql"><a href="#sql" class="headerlink" title="sql"></a>sql</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Write your MySQL query statement below</span><br><span class="line"><span class="keyword">update</span> salary <span class="keyword">set</span> sex <span class="operator">=</span> if(sex<span class="operator">=</span><span class="string">&#x27;m&#x27;</span>, <span class="string">&#x27;f&#x27;</span>, <span class="string">&#x27;m&#x27;</span>)</span><br></pre></td></tr></table></figure>
+      
+    <div class="collection-year">
+      <span class="collection-header">2023</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2023-08-06T17:23:39+08:00"
+              content="2023-08-06">
+          08-06
+        </time>
+      </div>
 
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
-          </div>
+      <div class="post-title">
+          <a class="post-title-link" href="/poetry/" itemprop="url">
+            <span itemprop="name">我喜欢的古诗词</span>
+          </a>
+      </div>
 
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/LeetCode-617-Merge-Two-Binary-Trees/" rel="prev" title="[LeetCode]617. Merge Two Binary Trees">
-                  <i class="fa fa-chevron-left"></i> [LeetCode]617. Merge Two Binary Trees
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/LeetCode-620-Not-Boring-Movies/" rel="next" title="[LeetCode]620. Not Boring Movies">
-                  [LeetCode]620. Not Boring Movies <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
+      
+    </header>
   </article>
-</div>
 
 
-
-
-
-
-    
-  
-  <div class="comments">
-    <script src="https://giscus.app/client.js"
-        data-repo="eazow/hexo" 
-        data-repo-id="MDEwOlJlcG9zaXRvcnkxNjI1NTM4Nzk=" 
-        data-category="Announcements"
-        data-category-id="DIC_kwDOCbBgF84CQl0J"
-        data-mapping="pathname" 
-        data-reactions-enabled="1" 
-        data-emit-metadata="0" 
-        data-theme="light"
-        data-lang="en"
-        crossorigin="anonymous"
-        data-input-position="top"
-        data-loading="lazy"
-        async>
-    </script>
+    </div>
   </div>
   
   
+  
+
 </div>
   </main>
 
