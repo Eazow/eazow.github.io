@@ -111,6 +111,89 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://eazow.com/LeetCode-338-Counting-Bits/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Eazow">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eazow">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Eazow">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/LeetCode-338-Counting-Bits/" class="post-title-link" itemprop="url">[LeetCode]338. Counting Bits</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-06-03 14:55:49" itemprop="dateCreated datePublished" datetime="2016-06-03T14:55:49+08:00">2016-06-03</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>Given a non negative integer number <strong>num</strong>. For every numbers <strong>i</strong> in the range <strong>0 ≤ i ≤ num</strong> calculate the number of 1’s in their binary representation and return them as an array.</p>
+</blockquote>
+<blockquote>
+<p>**Example:**For <code>num = 5</code>, you should return <code>[0,1,1,2,1,2]</code>.</p>
+</blockquote>
+<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>给定一个非负整数num，计算出从0到num的每个数的二进制中包含1的个数</p>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>对于数字n，它二进制表示形式中1的个数<code>bits[n] = bits[n&gt;&gt;1]+n&amp;1</code></p>
+<h4 id="c代码"><a href="#c代码" class="headerlink" title="c代码"></a>c代码</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Return an array of size *returnSize.</span></span><br><span class="line"><span class="comment"> * Note: The returned array must be malloced, assume caller calls free().</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span>* <span class="title function_">countBits</span><span class="params">(<span class="type">int</span> num, <span class="type">int</span>* returnSize)</span> &#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span>* bits = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * (num+<span class="number">1</span>));</span><br><span class="line">    bits[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt;= num; i++) &#123;</span><br><span class="line">        bits[i] = bits[i&gt;&gt;<span class="number">1</span>] + (i&amp;<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    *returnSize = num+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> bits;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> returnSize = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span>* bits = countBits(<span class="number">5</span>, &amp;returnSize);</span><br><span class="line">    assert(bits[<span class="number">0</span>] == <span class="number">0</span>);</span><br><span class="line">    assert(bits[<span class="number">1</span>] == <span class="number">1</span>);</span><br><span class="line">    assert(bits[<span class="number">2</span>] == <span class="number">1</span>);</span><br><span class="line">    assert(bits[<span class="number">3</span>] == <span class="number">2</span>);</span><br><span class="line">    assert(bits[<span class="number">4</span>] == <span class="number">1</span>);</span><br><span class="line">    assert(bits[<span class="number">5</span>] == <span class="number">2</span>);</span><br><span class="line">    assert(returnSize == <span class="number">6</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://eazow.com/leetcode/1-two-sum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
