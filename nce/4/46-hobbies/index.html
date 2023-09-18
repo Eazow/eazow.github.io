@@ -23,14 +23,14 @@
 
 
 
-<link rel="canonical" href="http://eazow.com/hexo-blog/">
+<link rel="canonical" href="http://eazow.com/nce/4/46-hobbies/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en-US","comments":true,"permalink":"http://eazow.com/hexo-blog/","path":"hexo-blog/","title":"在Github上用Hexo搭建个人Blog"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en-US","comments":true,"permalink":"http://eazow.com/nce/4/46-hobbies/","path":"nce/4/46-hobbies/","title":"Lesson 47 The great escape"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>在Github上用Hexo搭建个人Blog | Eazow</title>
+<title>Lesson 47 The great escape | Eazow</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NHS1WWDHJE"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-NHS1WWDHJE","only_pageview":false}</script>
@@ -112,7 +112,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en-US">
-    <link itemprop="mainEntityOfPage" href="http://eazow.com/hexo-blog/">
+    <link itemprop="mainEntityOfPage" href="http://eazow.com/nce/4/46-hobbies/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -125,12 +125,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="在Github上用Hexo搭建个人Blog | Eazow">
+      <meta itemprop="name" content="Lesson 47 The great escape | Eazow">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          在Github上用Hexo搭建个人Blog
+          Lesson 47 The great escape
         </h1>
 
         <div class="post-meta-container">
@@ -141,7 +141,16 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2016-03-25 10:01:06" itemprop="dateCreated datePublished" datetime="2016-03-25T10:01:06+08:00">2016-03-25</time>
+      <time title="Created: 2018-07-10 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-10T00:00:00+08:00">2018-07-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/English/" itemprop="url" rel="index"><span itemprop="name">English</span></a>
+        </span>
     </span>
 
   
@@ -157,7 +166,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>3 mins.</span>
     </span>
 </div>
 
@@ -168,52 +177,39 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h4 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1. 创建仓库"></a>1. 创建仓库</h4><p>在github上创建名称为username.github.io仓库</p>
-<h4 id="2-Clone"><a href="#2-Clone" class="headerlink" title="2. Clone"></a>2. Clone</h4><p>将仓库clone到本地</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/username/username.github.io</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="3-Hello-World"><a href="#3-Hello-World" class="headerlink" title="3. Hello World"></a>3. Hello World</h4><p>创建<code>index.html</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd username.github.io</span><br><span class="line">$ echo &quot;Hello World&quot; &gt; index.html</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="4-push"><a href="#4-push" class="headerlink" title="4. push"></a>4. push</h4><p>提交代码并<code>push</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add --all</span><br><span class="line">$ git commit -m &quot;Initial commit&quot;</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="5-验证"><a href="#5-验证" class="headerlink" title="5. 验证"></a>5. 验证</h4><p>访问username.github.io，这样就能看到Hello World了</p>
-<h4 id="6-域名映射"><a href="#6-域名映射" class="headerlink" title="6. 域名映射"></a>6. 域名映射</h4><p>将域名映射到username.github.io</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ echo &quot;www.yourdomain.com&quot; &gt; CNAME</span><br><span class="line">$ git commit -m &quot;Create CNAME&quot;</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
-<p>在域名管理添加一条CNAME记录，将<a target="_blank" rel="noopener" href="http://www.yourdomain.com指向username.github.io/">www.yourdomain.com指向username.github.io</a></p>
-<h4 id="7-安装Hexo"><a href="#7-安装Hexo" class="headerlink" title="7. 安装Hexo"></a>7. 安装Hexo</h4><h5 id="7-1-什么是Hexo"><a href="#7-1-什么是Hexo" class="headerlink" title="7.1 什么是Hexo"></a>7.1 什么是Hexo</h5><p>Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds.</p>
-<h5 id="7-2-安装Git"><a href="#7-2-安装Git" class="headerlink" title="7.2 安装Git"></a>7.2 安装Git</h5><h5 id="7-3-安装Node-js"><a href="#7-3-安装Node-js" class="headerlink" title="7.3 安装Node.js"></a>7.3 安装Node.js</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</span><br><span class="line">$ nvm install 4</span><br></pre></td></tr></table></figure>
-<h5 id="7-4-安装Hexo"><a href="#7-4-安装Hexo" class="headerlink" title="7.4 安装Hexo"></a>7.4 安装Hexo</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>这样就可以通过localhost:4000访问了</p>
-<h5 id="7-5-部署到github"><a href="#7-5-部署到github" class="headerlink" title="7.5 部署到github"></a>7.5 部署到github</h5><p>安装hexo-deployer-git</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>修改<code>_config.yml</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &lt;repository url&gt;</span><br></pre></td></tr></table></figure>
-
-<p>部署到github</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>但是部署后会覆盖掉github上的CNAME和README.md，需要在hexo的source目录添加CNAME和README.md，但是执行hexo generate后README.md会生成README.html，因此需要配置下，不让其渲染README.md。<br>修改Hexo目录下的_config.yml</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip_render: README.md</span><br></pre></td></tr></table></figure>
-
-<p>然后运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>这样就部署到github上了，并且不会覆盖掉已写好的CNAME和README.md了。</p>
-<h5 id="7-6-写blog"><a href="#7-6-写blog" class="headerlink" title="7.6 写blog"></a>7.6 写blog</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;Markdown&quot;</span><br></pre></td></tr></table></figure>
-<p>会在<code>source/_posts/</code>目录下生成<code>Markdown.md</code>文件，编辑该文件后</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a target="_blank" rel="noopener" href="https://github.io/">https://github.io</a><br><a target="_blank" rel="noopener" href="https://hexo.io/">https://hexo.io</a></p>
+        <blockquote>
+<p>Who, according to the author, are ‘Fortune’s favoured children’?</p>
+</blockquote>
+<p>A gifted American psychologist has said, ‘Worry is a <strong>spasm</strong> of the emotion; the mind catches hold of something and will not let it go.’ </p>
+<p>It is useless to argue with the mind in this condition. </p>
+<p>The stronger the will, the more <strong>futile</strong> the task. </p>
+<p>One can only gently <strong>insinuate</strong> something else into its <strong>convulsive</strong> <strong>grasp</strong>.</p>
+<p>And if this something else is rightly chosen, if it really attended by the <strong>illumination</strong> of another field of interest, gradually, and often quite swiftly, the old <strong>undue</strong> <strong>grip</strong> relaxes and the process of <strong>recuperation</strong> and repair begins.</p>
+<p>The <strong>cultivation</strong> of a hobby and new forms of interest is therefore a policy of the first importance to a public man. </p>
+<p>But this is not a business that can be undertaken in a day or swiftly <strong>improvised</strong> by a mere command of the will. </p>
+<p>The growth of <strong>alternative</strong> mental interests is a long process. </p>
+<p>The seeds must be carefully chosen; they must fall on good ground; they must be <strong>sedulously</strong> <strong>tended</strong>, if the <strong>vivifying</strong> fruits are to be at hand when needed.</p>
+<p>To be really happy and really safe, one ought to have at least two or three hobbies, and they must all be real. </p>
+<p>It is no use starting late in life to say: “I will take an interest in this or that.”</p>
+<p>Such an attempt only aggravates the strain of mental effort. </p>
+<p>A man may acquire great knowledge of topics unconnected with his daily work, and yet get hardly any benefit or <strong>relief</strong>. </p>
+<p>It is no use doing what you like; you have got to like what you do. </p>
+<p>Broadly speaking, human beings may be divided into three classes: those who are <strong>toiled</strong> to death, those who are worried to death,  and those who are bored to death.</p>
+<p>It is no use offering the manual laborer, tired out with a hard week’s <strong>sweat</strong> and effort, the chance of playing a game of football or baseball on Saturday afternoon. </p>
+<p>It is no use inviting the politician or the professional or business man, who has been working or worrying about serious things for six days, to work or worry about <strong>trifling</strong> things at the weekend.</p>
+<p>As for the unfortunate people who can command everything they want, who can <strong>gratify</strong> every <strong>caprice</strong> and lay their hands on almost every object of desire—for them a new pleasure, a new excitement if only an additional <strong>satiation</strong>. </p>
+<p>In <strong>vain</strong> they rush <strong>frantically</strong> round from place to place, trying to escape from <strong>avenging</strong> <strong>boredom</strong> by mere <strong>clatter</strong> and motion. </p>
+<p>For them discipline in one form or another is the most hopeful path.</p>
+<p>It may also be said that rational, industrious, useful human being are divided into two classes: first, those whose work is work and whose pleasure is pleasure; and secondly, those whose work and pleasure are one. </p>
+<p>Of these the former are the majority. </p>
+<p>They have their <strong>compensations</strong>. </p>
+<p>The long hours in the office or the factory bring with them as their reward, not only the means of <strong>sustenance</strong>, but a <strong>keen</strong> <strong>appetite</strong> for pleasure even in its simplest and most modest forms.</p>
+<p>But Fortune’s favoured children belong to the second class. </p>
+<p>Their life is a natural harmony. </p>
+<p>For them the working hours are never long enough. </p>
+<p>Each day is a holiday, and ordinary holidays, when they come, are <strong>grudged</strong> as enforced interruptions in an absorbing vocation. </p>
+<p>Yet to both classes, the need of an alternative outlook, of a change of atmosphere, of a <strong>diversion</strong> of effort, is essential. </p>
+<p>Indeed, it may well be that those whose work is their pleasure are those who most need the means of <strong>banishing</strong> it at intervals from their minds.</p>
 
     </div>
 
@@ -223,20 +219,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/English/" rel="tag"><i class="fa fa-tag"></i> English</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/linux-kernel/" rel="prev" title="编译Linux内核增加系统调用">
-                  <i class="fa fa-chevron-left"></i> 编译Linux内核增加系统调用
+                <a href="/zen-of-python/" rel="prev" title="The Zen of Python">
+                  <i class="fa fa-chevron-left"></i> The Zen of Python
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/markdown/" rel="next" title="Markdown参考">
-                  Markdown参考 <i class="fa fa-chevron-right"></i>
+                <a href="/nce/4/47-the-great-escape/" rel="next" title="Lesson 47 The great escape">
+                  Lesson 47 The great escape <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
