@@ -166,7 +166,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>NaN:aN</span>
+      <span>8 mins.</span>
     </span>
 </div>
 
@@ -214,7 +214,7 @@
 <p>You can stop the consumer client with <code>Ctrl-C</code> at any time.</p>
 <p>Feel free to experiment: for example, switch back to your producer terminal (previous step) to write additional events, and see how the events immediately show up in your consumer terminal.</p>
 <p>Because events are durably stored in Kafka, they can be read as many times and by as many consumers as you want. You can easily verify this by opening yet another terminal session and re-running the previous command again.</p>
-<h4 id="6-IMPORT-x2F-EXPORT-YOUR-DATA-AS-STREAMS-OF-EVENTS-WITH-KAFKA-CONNECT"><a href="#6-IMPORT-x2F-EXPORT-YOUR-DATA-AS-STREAMS-OF-EVENTS-WITH-KAFKA-CONNECT" class="headerlink" title="6. IMPORT&#x2F;EXPORT YOUR DATA AS STREAMS OF EVENTS WITH KAFKA CONNECT"></a>6. IMPORT&#x2F;EXPORT YOUR DATA AS STREAMS OF EVENTS WITH KAFKA CONNECT</h4><p>You probably have lots of data in existing systems like relational databases or traditional messaging systems, along with many applications that already use these systems. <a target="_blank" rel="noopener" href="https://kafka.apache.org/documentation/#connect">Kafka Connect</a> allows you to continuously ingest data from external systems into Kafka, and vice versa. It is an extensible tool that runs <em>connectors</em>, which implement the custom logic for interacting with an external system. It is thus very easy to integrate existing systems with Kafka. To make this process even easier, there are hundreds of such connectors readily available.</p>
+<h4 id="6-IMPORT-EXPORT-YOUR-DATA-AS-STREAMS-OF-EVENTS-WITH-KAFKA-CONNECT"><a href="#6-IMPORT-EXPORT-YOUR-DATA-AS-STREAMS-OF-EVENTS-WITH-KAFKA-CONNECT" class="headerlink" title="6. IMPORT&#x2F;EXPORT YOUR DATA AS STREAMS OF EVENTS WITH KAFKA CONNECT"></a>6. IMPORT&#x2F;EXPORT YOUR DATA AS STREAMS OF EVENTS WITH KAFKA CONNECT</h4><p>You probably have lots of data in existing systems like relational databases or traditional messaging systems, along with many applications that already use these systems. <a target="_blank" rel="noopener" href="https://kafka.apache.org/documentation/#connect">Kafka Connect</a> allows you to continuously ingest data from external systems into Kafka, and vice versa. It is an extensible tool that runs <em>connectors</em>, which implement the custom logic for interacting with an external system. It is thus very easy to integrate existing systems with Kafka. To make this process even easier, there are hundreds of such connectors readily available.</p>
 <p>In this quickstart we’ll see how to run Kafka Connect with simple connectors that import data from a file to a Kafka topic and export data from a Kafka topic to a file.</p>
 <p>First, make sure to add <code>connect-file-3.2.1.jar</code> to the <code>plugin.path</code> property in the Connect worker’s configuration. For the purpose of this quickstart we’ll use a relative path and consider the connectors’ package as an uber jar, which works when the quickstart commands are run from the installation directory. However, it’s worth noting that for production deployments using absolute paths is always preferable. See <a target="_blank" rel="noopener" href="https://kafka.apache.org/quickstart#connectconfigs_plugin.path">plugin.path</a> for a detailed description of how to set this config.</p>
 <p>Edit the <code>config/connect-standalone.properties</code> file, add or change the <code>plugin.path</code> configuration property match the following, and save the file:</p>
@@ -318,13 +318,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">NaNm</span>
+    <span title="Symbols count total">121k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">NaN:aN</span>
+    <span title="Reading time total">1:50</span>
   </span>
 </div>
 <div class="busuanzi-count">
