@@ -214,6 +214,141 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://eazow.com/b-tree-leaf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Eazow">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eazow">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Eazow">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/b-tree-leaf/" class="post-title-link" itemprop="url">B-Tree叶节点格式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-09-10 23:57:20" itemprop="dateCreated datePublished" datetime="2023-09-10T23:57:20+08:00">2023-09-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Coding/" itemprop="url" rel="index"><span itemprop="name">Coding</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我们将表的格式从未排序的行数组更改为 B 树。这是一个相当大的改变，需要多篇文章来实现。在本文末尾，我们将定义叶节点的布局并支持将键&#x2F;值对插入到单节点树中。但首先，让我们回顾一下切换到树结构的原因。</p>
+<h3 id="替代表格格式"><a href="#替代表格格式" class="headerlink" title="替代表格格式"></a>替代表格格式</h3><p>使用当前格式，每个页面仅存储行（无元数据），因此空间效率很高。插入也很快，因为我们只是追加到末尾。但是，查找特定行只能通过扫描整个表来完成。如果我们想删除一行，我们必须通过移动它后面的每一行来填补这一行。</p>
+<p>如果我们将表存储为数组，但保留按 id 排序的行，则可以使用二分搜索来查找特定 id。然而，插入会很慢，因为我们必须移动很多行来腾出空间。</p>
+<p>相反，我们将采用树结构。树中的每个节点可以包含可变数量的行，因此我们必须在每个节点中存储一些信息以跟踪它包含多少行。另外，还有所有不存储任何行的内部节点的存储开销。作为更大的数据库文件的交换，我们获得了快速的插入、删除和查找。</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">未排序的行数组</th>
+<th align="left">已排序的行数组</th>
+<th align="left">节点树</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">页面包含</td>
+<td align="left">仅数据</td>
+<td align="left">仅数据</td>
+<td align="left">元数据、主键和数据</td>
+</tr>
+<tr>
+<td align="left">每页行数</td>
+<td align="left">更多的</td>
+<td align="left">更多的</td>
+<td align="left">更少</td>
+</tr>
+<tr>
+<td align="left">Insertion 插入</td>
+<td align="left">O(1)</td>
+<td align="left">O(n)</td>
+<td align="left">O(log(n))</td>
+</tr>
+<tr>
+<td align="left">Deletion 删除</td>
+<td align="left">O(n)</td>
+<td align="left">O(n)</td>
+<td align="left">O(log(n))</td>
+</tr>
+<tr>
+<td align="left">通过id查找</td>
+<td align="left">O(n)</td>
+<td align="left">O(log(n))</td>
+<td align="left">O(log(n))</td>
+</tr>
+</tbody></table>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/b-tree-leaf/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://eazow.com/rust/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -375,8 +510,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>读书时不太能读懂诗词，年纪大了便能体会到其中的韵味和阅历</p>
-<h4 id="将进酒"><a href="#将进酒" class="headerlink" title="将进酒"></a>将进酒</h4><h6 id="李白"><a href="#李白" class="headerlink" title="李白"></a>李白</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">君不见，黄河之水天上来，奔流到海不复回。</span><br><span class="line"></span><br><span class="line">君不见，高堂明镜悲白发，朝如青丝暮成雪。</span><br><span class="line"></span><br><span class="line">人生得意须尽欢，莫使金樽空对月。</span><br><span class="line"></span><br><span class="line">天生我材必有用，千金散尽还复来。</span><br><span class="line"></span><br><span class="line">烹羊宰牛且为乐，会须一饮三百杯。</span><br><span class="line"></span><br><span class="line">岑夫子，丹丘生，将进酒，杯莫停。</span><br><span class="line"></span><br><span class="line">与君歌一曲，请君为我倾耳听。</span><br><span class="line"></span><br><span class="line">钟鼓馔玉不足贵，但愿长醉不复醒。</span><br><span class="line"></span><br><span class="line">古来圣贤皆寂寞，惟有饮者留其名。</span><br><span class="line"></span><br><span class="line">陈王昔时宴平乐，斗酒十千恣欢谑。</span><br><span class="line"></span><br><span class="line">主人何为言少钱，径须沽取对君酌。</span><br><span class="line"></span><br><span class="line">五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。</span><br></pre></td></tr></table></figure>
+          <p>读书时听着老师念答案不太能读懂诗词，年纪大了便能体会到其中的韵味和阅历。每次读时，还能有不同的品味</p>
+<h4 id="将进酒"><a href="#将进酒" class="headerlink" title="将进酒"></a>将进酒</h4><h6 id="李白"><a href="#李白" class="headerlink" title="李白"></a>李白</h6><p>君不见，黄河之水天上来，奔流到海不复回。</p>
+<p>君不见，高堂明镜悲白发，朝如青丝暮成雪。</p>
+<p>人生得意须尽欢，莫使金樽空对月。</p>
+<p>天生我材必有用，千金散尽还复来。</p>
+<p>烹羊宰牛且为乐，会须一饮三百杯。</p>
+<p>岑夫子，丹丘生，将进酒，杯莫停。</p>
+<p>与君歌一曲，请君为我倾耳听。</p>
+<p>钟鼓馔玉不足贵，但愿长醉不复醒。</p>
+<p>古来圣贤皆寂寞，惟有饮者留其名。</p>
+<p>陈王昔时宴平乐，斗酒十千恣欢谑。</p>
+<p>主人何为言少钱，径须沽取对君酌。</p>
+<p>五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/poetry/#more" rel="contents">
@@ -1020,110 +1166,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://eazow.com/kafka/quickstart/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Eazow">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eazow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Eazow">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/kafka/quickstart/" class="post-title-link" itemprop="url">Kafka Quickstart</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-09-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-10T00:00:00+08:00">2019-09-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Kafka/" itemprop="url" rel="index"><span itemprop="name">Kafka</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>8 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="1-GET-KAFKA"><a href="#1-GET-KAFKA" class="headerlink" title="1. GET KAFKA"></a>1. GET KAFKA</h4><p><a target="_blank" rel="noopener" href="https://www.apache.org/dyn/closer.cgi?path=/kafka/3.2.1/kafka_2.13-3.2.1.tgz">Download</a> the latest Kafka release and extract it:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar -xzf kafka_2.13-3.2.1.tgz</span><br><span class="line">$ <span class="built_in">cd</span> kafka_2.13-3.2.1</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2-START-THE-KAFKA-ENVIRONMENT"><a href="#2-START-THE-KAFKA-ENVIRONMENT" class="headerlink" title="2.START THE KAFKA ENVIRONMENT"></a>2.START THE KAFKA ENVIRONMENT</h4><p><em>NOTE: Your local environment must have Java 8+ installed.</em></p>
-<p>Run the following commands in order to start all services in the correct order:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Start the ZooKeeper service</span></span><br><span class="line"><span class="comment"># Note: Soon, ZooKeeper will no longer be required by Apache Kafka.</span></span><br><span class="line">$ bin/zookeeper-server-start.sh config/zookeeper.properties</span><br></pre></td></tr></table></figure>
-
-<p>Open another terminal session and run:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Start the Kafka broker service</span></span><br><span class="line">$ bin/kafka-server-start.sh config/server.properties</span><br></pre></td></tr></table></figure>
-
-<p>Once all services have successfully launched, you will have a basic Kafka environment running and ready to use.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/kafka/quickstart/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -1148,13 +1190,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">123k</span>
+    <span title="Symbols count total">129k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:52</span>
+    <span title="Reading time total">1:57</span>
   </span>
 </div>
 <div class="busuanzi-count">

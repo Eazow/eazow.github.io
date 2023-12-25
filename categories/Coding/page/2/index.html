@@ -23,14 +23,14 @@
 
 
 
-<link rel="canonical" href="http://eazow.com/LeetCode-595-Big-Countries/">
+<link rel="canonical" href="http://eazow.com/categories/Coding/page/2/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en-US","comments":true,"permalink":"http://eazow.com/LeetCode-595-Big-Countries/","path":"LeetCode-595-Big-Countries/","title":"[LeetCode]595. Big Countries"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en-US","comments":"","permalink":"","path":"categories/Coding/page/2/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>[LeetCode]595. Big Countries | Eazow</title>
+<title>Category: Coding | Eazow</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NHS1WWDHJE"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-NHS1WWDHJE","only_pageview":false}</script>
@@ -101,129 +101,54 @@
 </noscript>
 
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner category posts-collapse">
 
 
   
-
-
-<div class="post-block">
   
   
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en-US">
-    <link itemprop="mainEntityOfPage" href="http://eazow.com/LeetCode-595-Big-Countries/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Eazow">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eazow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="[LeetCode]595. Big Countries | Eazow">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          [LeetCode]595. Big Countries
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        <h1 class="collection-header">Coding
+          <small>Category</small>
         </h1>
+      </div>
 
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2017-07-27 14:59:15" itemprop="dateCreated datePublished" datetime="2017-07-27T14:59:15+08:00">2017-07-27</time>
-    </span>
-
-  
-    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">Views: </span>
-      <span id="busuanzi_value_page_pv"></span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h5 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h5><blockquote>
-<p>There is a table <code>World</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+-----------------+------------+------------+--------------+---------------+</span><br><span class="line">| name            | continent  | area       | population   | gdp           |</span><br><span class="line">+-----------------+------------+------------+--------------+---------------+</span><br><span class="line">| Afghanistan     | Asia       | 652230     | 25500100     | 20343000      |</span><br><span class="line">| Albania         | Europe     | 28748      | 2831741      | 12960000      |</span><br><span class="line">| Algeria         | Africa     | 2381741    | 37100000     | 188681000     |</span><br><span class="line">| Andorra         | Europe     | 468        | 78115        | 3712000       |</span><br><span class="line">| Angola          | Africa     | 1246700    | 20609294     | 100990000     |</span><br><span class="line">+-----------------+------------+------------+--------------+---------------+</span><br></pre></td></tr></table></figure>
-<p>A country is big if it has an area of bigger than 3 million square km or a population of more than 25 million.</p>
-</blockquote>
-<blockquote>
-<p>Write a SQL solution to output big countries’ name, population and area.</p>
-</blockquote>
-<blockquote>
-<p>For example, according to the above table, we should output:</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+--------------+-------------+--------------+</span><br><span class="line">| name         | population  | area         |</span><br><span class="line">+--------------+-------------+--------------+</span><br><span class="line">| Afghanistan  | 25500100    | 652230       |</span><br><span class="line">| Algeria      | 37100000    | 2381741      |</span><br><span class="line">+--------------+-------------+--------------+</span><br></pre></td></tr></table></figure>
-
-<h5 id="难度"><a href="#难度" class="headerlink" title="难度"></a>难度</h5><p>Easy</p>
-<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>没想到LeetCode有这么简单的题，直接写sql即可</p>
-<h5 id="sql"><a href="#sql" class="headerlink" title="sql"></a>sql</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Write your MySQL query statement below</span><br><span class="line">select name, population, area from world where area &gt; 3000000 or population &gt; 25000000;</span><br></pre></td></tr></table></figure>
+      
+    <div class="collection-year">
+      <span class="collection-header">2016</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2016-06-02T18:03:00+08:00"
+              content="2016-06-02">
+          06-02
+        </time>
+      </div>
 
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
-          </div>
+      <div class="post-title">
+          <a class="post-title-link" href="/leetcode/1-two-sum/" itemprop="url">
+            <span itemprop="name">[LeetCode]1. Two Sum</span>
+          </a>
+      </div>
 
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/LeetCode-599-Minimum-Index-Sum-of-Two-lists/" rel="prev" title="[LeetCode]599. Minimum Index Sum of Two lists">
-                  <i class="fa fa-chevron-left"></i> [LeetCode]599. Minimum Index Sum of Two lists
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/LeetCode-617-Merge-Two-Binary-Trees/" rel="next" title="[LeetCode]617. Merge Two Binary Trees">
-                  [LeetCode]617. Merge Two Binary Trees <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
+      
+    </header>
   </article>
-</div>
 
-
-
-
-
-
-    
-  
-  <div class="comments giscus-container">
+    </div>
   </div>
   
   
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/categories/Coding/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/categories/Coding/">1</a><span class="page-number current">2</span>
+  </nav>
+
 </div>
   </main>
 
