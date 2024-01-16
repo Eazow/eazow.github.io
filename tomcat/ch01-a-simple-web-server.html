@@ -88,6 +88,7 @@
 
 </div>
     </header>
+    <img id="banner" style="width: 100%; height: 360px; object-fit: cover;" />
     
 
     
@@ -319,7 +320,7 @@
 
 <div class="copyright">
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -357,6 +358,13 @@
       </span>
     </span>
 </div>
+
+<script>
+    var numberOfBanners = 6;
+    var randomNum = Math.floor(Math.random() * numberOfBanners);
+    document.getElementById("banner").src = "https://hyz-blog.oss-cn-hangzhou.aliyuncs.com/bg" + randomNum + ".jpeg";
+</script>
+
 
     </div>
   </footer>

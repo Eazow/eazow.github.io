@@ -23,14 +23,14 @@
 
 
 
-<link rel="canonical" href="http://eazow.com/LeetCode-387-First-Unique-Character-in-a-String/">
+<link rel="canonical" href="http://eazow.com/archives/2024/01/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en-US","comments":true,"permalink":"http://eazow.com/LeetCode-387-First-Unique-Character-in-a-String/","path":"LeetCode-387-First-Unique-Character-in-a-String/","title":"[LeetCode]387. First Unique Character in a String"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en-US","comments":"","permalink":"","path":"archives/2024/01/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>[LeetCode]387. First Unique Character in a String | Eazow</title>
+<title>Archive | Eazow</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NHS1WWDHJE"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-NHS1WWDHJE","only_pageview":false}</script>
@@ -63,7 +63,7 @@
 
     <a href="/" class="brand" rel="start">
       <!--i class="logo-line"></i-->
-      <p class="site-title">Eazow</p>
+      <h1 class="site-title">Eazow</h1>
       <!--i class="logo-line"></i-->
     </a>
       <p class="site-subtitle" itemprop="description">Stay kind and positive</p>
@@ -102,120 +102,51 @@
 </noscript>
 
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner archive posts-collapse">
 
 
   
-
-
-<div class="post-block">
   
   
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        
+        <span class="collection-header">Nice! 59 posts in total. Keep on posting.</span>
+      </div>
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en-US">
-    <link itemprop="mainEntityOfPage" href="http://eazow.com/LeetCode-387-First-Unique-Character-in-a-String/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Eazow">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eazow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="[LeetCode]387. First Unique Character in a String | Eazow">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          [LeetCode]387. First Unique Character in a String
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2017-08-14 14:39:15" itemprop="dateCreated datePublished" datetime="2017-08-14T14:39:15+08:00">2017-08-14</time>
-    </span>
-
-  
-    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">Views: </span>
-      <span id="busuanzi_value_page_pv"></span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.</p>
-<p><strong>Examples:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s = &quot;leetcode&quot;</span><br><span class="line">return 0.</span><br><span class="line"></span><br><span class="line">s = &quot;loveleetcode&quot;,</span><br><span class="line">return 2.</span><br></pre></td></tr></table></figure>
-<p><strong>Note:</strong> You may assume the string contain only lowercase letters.</p>
-<h3 id="难度"><a href="#难度" class="headerlink" title="难度"></a>难度</h3><p>Easy</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>先用一个dict统计每个单词出现的次数，然后从头开始检查<code>s</code>的字符，如果字符出现次数为<code>1</code>，则返回该字符的位置; 如果所有字符出现字数都不为<code>1</code>，则返回<code>-1</code></p>
-<h3 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">firstUniqChar</span>(<span class="params">self, s</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        counter = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> s:</span><br><span class="line">            <span class="keyword">if</span> counter.has_key(c):</span><br><span class="line">                counter[c] += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                counter[c] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">            <span class="keyword">if</span> counter[s[i]] == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> i</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> Solution().firstUniqChar(<span class="string">&quot;leetcode&quot;</span>) == <span class="number">0</span></span><br><span class="line"><span class="keyword">assert</span> Solution().firstUniqChar(<span class="string">&quot;leveleetcode&quot;</span>) == <span class="number">2</span></span><br></pre></td></tr></table></figure>
+      
+    <div class="collection-year">
+      <span class="collection-header">2024</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2024-01-02T22:00:20+08:00"
+              content="2024-01-02">
+          01-02
+        </time>
+      </div>
 
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
-          </div>
+      <div class="post-title">
+          <a class="post-title-link" href="/tao-te-ching/" itemprop="url">
+            <span itemprop="name">道德经</span>
+          </a>
+      </div>
 
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/LeetCode-506-Relative-Ranks/" rel="prev" title="[LeetCode]506. Relative Ranks">
-                  <i class="fa fa-chevron-left"></i> [LeetCode]506. Relative Ranks
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/LeetCode-409-Longest-Palindrome/" rel="next" title="[LeetCode]409. Longest Palindrome">
-                  [LeetCode]409. Longest Palindrome <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
+      
+    </header>
   </article>
-</div>
 
 
-
-
-
-
-    
-  
-  <div class="comments giscus-container">
+    </div>
   </div>
   
   
+  
+
 </div>
   </main>
 
