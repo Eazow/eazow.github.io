@@ -160,7 +160,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
@@ -241,7 +241,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2023-09-10 23:57:20" itemprop="dateCreated datePublished" datetime="2023-09-10T23:57:20+08:00">2023-09-10</time>
+      <time title="Created: 2023-09-20 23:57:20" itemprop="dateCreated datePublished" datetime="2023-09-20T23:57:20+08:00">2023-09-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -270,10 +270,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我们将表的格式从未排序的行数组更改为 B 树。这是一个相当大的改变，需要多篇文章来实现。在本文末尾，我们将定义叶节点的布局并支持将键&#x2F;值对插入到单节点树中。但首先，让我们回顾一下切换到树结构的原因。</p>
-<h3 id="替代表格格式"><a href="#替代表格格式" class="headerlink" title="替代表格格式"></a>替代表格格式</h3><p>使用当前格式，每个页面仅存储行（无元数据），因此空间效率很高。插入也很快，因为我们只是追加到末尾。但是，查找特定行只能通过扫描整个表来完成。如果我们想删除一行，我们必须通过移动它后面的每一行来填补这一行。</p>
-<p>如果我们将表存储为数组，但保留按 id 排序的行，则可以使用二分搜索来查找特定 id。然而，插入会很慢，因为我们必须移动很多行来腾出空间。</p>
-<p>相反，我们将采用树结构。树中的每个节点可以包含可变数量的行，因此我们必须在每个节点中存储一些信息以跟踪它包含多少行。另外，还有所有不存储任何行的内部节点的存储开销。作为更大的数据库文件的交换，我们获得了快速的插入、删除和查找。</p>
+          <p>我们将表的格式从未排序的行数组更改为 B 树。这是一个很大的更改，需要多篇文章来实现。在本文的结尾，我们将定义叶节点的布局，并支持将键&#x2F;值对插入到单节点树中。但首先，让我们回顾一下切换到树结构的原因。</p>
+<h3 id="替代表格格式"><a href="#替代表格格式" class="headerlink" title="替代表格格式"></a>替代表格格式</h3><p>使用当前格式，每个页面仅存储行（无元数据），因此非常节省空间。插入也很快速，因为我们只需追加到末尾即可。但是，只能通过扫描整个表来查找特定行。如果要删除一行，则必须通过移动其后的每一行来填补该空缺。</p>
+<p>如果我们将表存储为数组，但按 id 对行进行排序，则可以使用二分查找来查找特定 id。但是，插入会很慢，因为我们必须移动很多行来腾出空间。</p>
+<p>相反，我们使用树结构。树中的每个节点可以包含数量可变的行，因此我们必须在每个节点中存储一些信息来跟踪它包含多少行。此外，所有不存储任何行的内部节点还存在存储开销。作为对更大的数据库文件进行交换，我们获得了快速的插入、删除和查找。</p>
 <table>
 <thead>
 <tr>
@@ -296,13 +296,13 @@
 <td align="left">更少</td>
 </tr>
 <tr>
-<td align="left">Insertion 插入</td>
+<td align="left">插入</td>
 <td align="left">O(1)</td>
 <td align="left">O(n)</td>
 <td align="left">O(log(n))</td>
 </tr>
 <tr>
-<td align="left">Deletion 删除</td>
+<td align="left">删除</td>
 <td align="left">O(n)</td>
 <td align="left">O(n)</td>
 <td align="left">O(log(n))</td>
@@ -1197,13 +1197,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">129k</span>
+    <span title="Symbols count total">130k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:57</span>
+    <span title="Reading time total">1:58</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -1226,9 +1226,12 @@
 </div>
 
 <script>
-    var numberOfBanners = 7;
-    var randomNum = Math.floor(Math.random() * numberOfBanners);
-    document.getElementsByClassName("banner")[0].src = "https://hyz-blog.oss-cn-hangzhou.aliyuncs.com/bg" + randomNum + ".jpeg";
+  var numberOfBanners = 8;
+  var randomNum = Math.floor(Math.random() * numberOfBanners);
+  document.getElementsByClassName("banner")[0].src =
+    "https://hyz-blog.oss-cn-hangzhou.aliyuncs.com/banner" +
+    randomNum +
+    ".jpeg";
 </script>
 
 
