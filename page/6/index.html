@@ -113,6 +113,96 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://eazow.com/leetcode/90-subsets-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Eazow">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eazow">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Eazow">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/leetcode/90-subsets-2/" class="post-title-link" itemprop="url">[LeetCode]90. Subsets II</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-09-23 10:09:37" itemprop="dateCreated datePublished" datetime="2016-09-23T10:09:37+08:00">2016-09-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Coding/" itemprop="url" rel="index"><span itemprop="name">Coding</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p>Given a collection of integers that might contain duplicates, <em><strong>nums</strong></em>, return all possible subsets.<br><strong>Note:</strong> The solution set must not contain duplicate subsets.<br>For example,<br>If <em><strong>nums</strong></em> &#x3D; [1,2,2], a solution is:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [2],</span><br><span class="line">  [1],</span><br><span class="line">  [1,2,2],</span><br><span class="line">  [2,2],</span><br><span class="line">  [1,2],</span><br><span class="line">  []</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>设定返回的列表的列表为<code>result</code>。先对数组排序，如果<code>nums[i]!=nums[i-1]</code>，那么就遍历<code>result</code>，复制每个列表为<code>tempList</code>，加入<code>nums[i]</code>，然后将该列表加入<code>result</code>中；如果<code>nums[i]==nums[i-1]</code>，那么记录下加入<code>nums[i-1]</code>前返回列表的大小<code>resultIndex</code>，<code>resultSize</code>为加入<code>nums[i-1]</code>后的大小，对<code>result</code>中从<code>resultIndex</code>至<code>resultSize</code>的列表加入<code>nums[i]</code>，然后将新生成的列表加入<code>result</code></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">subsetsWithDup</span>(<span class="params">self, nums</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        result = [[]]</span><br><span class="line">        nums.sort()</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        resultSize = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(nums):</span><br><span class="line">            num = nums[i]</span><br><span class="line">            resultIndex = <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> i&gt;<span class="number">0</span> <span class="keyword">and</span> nums[i]==nums[i-<span class="number">1</span>]:</span><br><span class="line">                resultIndex = resultSize;</span><br><span class="line">            resultSize = <span class="built_in">len</span>(result)</span><br><span class="line">            <span class="keyword">while</span> resultIndex &lt; resultSize:</span><br><span class="line">                tempList = result[resultIndex][:]</span><br><span class="line">                tempList.append(num)</span><br><span class="line">                result.append(tempList)</span><br><span class="line">                resultIndex += <span class="number">1</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> Solution().subsetsWithDup([<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>]) == [[],[<span class="number">1</span>],[<span class="number">2</span>],[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">2</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>]]</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://eazow.com/LeetCode-201-Bitwise-AND-of-Numbers-Range/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -932,132 +1022,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://eazow.com/linux-kernel/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Eazow">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eazow">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Eazow">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/linux-kernel/" class="post-title-link" itemprop="url">编译Linux内核增加系统调用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2008-02-29 18:50:36" itemprop="dateCreated datePublished" datetime="2008-02-29T18:50:36+08:00">2008-02-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>折腾了差不多一、两天，终于通过虚拟机在Ubuntu下完成了通过编译内核，增加系统调用的实验，在此与大家分享一下，希望能够对看到的xdjm们或多或少地提供些帮助！</p>
-<p>期间我换了几个内核版本，make了几次，浪费了大量的时间，主要还是对里面的文件不了解，找不到网上说的文件就很郁闷，甚至有些烦躁，最后换了个有同学成功的版本，终于坚持下来完成了！</p>
-<p>其中make modules很费时间，而且用的是虚拟机，那就更慢了，估计2小时左右吧，当然这两小时也不闲着，外面阳光灿烂，出去好好的打了几次球 ^_^，劳逸结合！正当我打累了回来它差不多就好了，Ubuntu真给面子啊！</p>
-<p>我用的 Ubuntu 7.10 ，编译的内核版本是2.6.23.12(更多版本可以到<a target="_blank" rel="noopener" href="http://www.kernel.org/">http://www.kernel.org</a>去下载)</p>
-<h4 id="内核解压"><a href="#内核解压" class="headerlink" title="内核解压"></a>内核解压</h4><p>将内核包解压到&#x2F;usr&#x2F;src下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar jvxf linux-2.6.23.12.tar.gz2</span><br></pre></td></tr></table></figure>
-<p>或者是</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf linux-2.6.23.12.tar.gz</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="增加系统调用"><a href="#增加系统调用" class="headerlink" title="增加系统调用"></a>增加系统调用</h4><p>修改sys.c</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/src/linux-2.6.23.12</span><br><span class="line">$ vim kernel/sys.c</span><br></pre></td></tr></table></figure>
-
-<p>添加一个简单的调用</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">asmlinkage <span class="type">int</span> <span class="title function_">sys_mysyscall</span><span class="params">(<span class="type">int</span> num)</span> &#123;</span><br><span class="line">    printk(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>修改系统调用表，syscall_table.S：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/src/linux-2.6.23.12/arch/i386/kernel</span><br><span class="line">//（没有i386文件夹的版本的貌似是进x86）</span><br><span class="line">$ vim syscall_table.S</span><br></pre></td></tr></table></figure>
-<p>在最后加上</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.long sys_mysyscall</span><br></pre></td></tr></table></figure>
-
-
-<p>增加新系统调用号，修改&#x2F;usr&#x2F;include&#x2F;asm-i386&#x2F;unisted.h, 添加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define _ _NR_mysyscall 325</span><br></pre></td></tr></table></figure>
-
-<p>修改&#x2F;usr&#x2F;src&#x2F;linux-2.6.23.12&#x2F;include&#x2F;asm-i386&#x2F;unistd.h<br>添加<code>#define __NR_mysyscall 325</code>, 并将里面的<code>#define NR_syscall 325</code>改为326, 增加更多的系统调用依此类推</p>
-<p>开始编译内核了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/src/linux-2.6.23.12</span><br><span class="line">$ make menuconfig</span><br><span class="line">$ make bzImage</span><br><span class="line">$ make modules</span><br><span class="line">$ make modules_install</span><br><span class="line">$ cp arch/i386/boot/bzImage /boot/vmlinuz-2.6.23.12 $ mkinitramfs -o initrd.img-2.6.23.12 2.6.23.12</span><br></pre></td></tr></table></figure>
-<p>&#x2F;lib&#x2F;modules会多出2.6.23.12这个文件夹</p>
-<p>修改grub：</p>
-<p>第5步后&#x2F;boot 下会多出两个文件 vmlinuz-2.6.23.12 initrd.img-2.6.23.12<br>修改<code>/boot/grub/menu.lst</code>, 没有menu.lst可能会是grub.conf<br>仿照里面的格式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title Ubuntu 7.10, kernel 2.6.22-14-generic</span><br><span class="line">root (hd0,0)</span><br><span class="line">kernel /boot/vmlinuz-2.6.22-14-generic root=UUID=e2478f9d-7f5d-458f-b017-43458a8f62ea ro quiet</span><br><span class="line">splash</span><br><span class="line">initrd /boot/initrd.img-2.6.22-14-generic </span><br><span class="line">quiet</span><br></pre></td></tr></table></figure>
-<p>添加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title Ubuntu 7.10, kernel 2.6.23-12</span><br><span class="line">root (hd0,0) </span><br><span class="line">kernel /boot/vmlinuz-2.6.23.12 root=UUID=e2478f9d-7f5d-458f-b017-43458a8f62ea ro quiet</span><br><span class="line">splash </span><br><span class="line">initrd /boot/initrd-2.6.23.12.img</span><br><span class="line">quiet</span><br></pre></td></tr></table></figure>
-<p>将hiddenmenu注释掉 即#hiddenmenu</p>
-<p>重启，导入新的内核，测试，新建test.c</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;linux/unistd.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;asm/unistd.h&gt;</span><br><span class="line"></span><br><span class="line">#define __NR_mycall     325 </span><br><span class="line">#define __NR_myfilecopy     326    //增加的拷贝文件的系统调用</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123; </span><br><span class="line">    syscall(325, 6);    //6为系统调用的参数，多参数的类推</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>最后，预祝你们圆满成功！！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>
@@ -1080,13 +1046,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">134k</span>
+    <span title="Symbols count total">137k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:01</span>
+    <span title="Reading time total">2:04</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -1109,7 +1075,7 @@
 </div>
 
 <script>
-  var numberOfBanners = 8;
+  var numberOfBanners = 9;
   var randomNum = Math.floor(Math.random() * numberOfBanners);
   document.getElementsByClassName("banner")[0].src =
     "https://hyz-blog.oss-cn-hangzhou.aliyuncs.com/banner" +
