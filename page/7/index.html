@@ -113,6 +113,127 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://eazow.com/hexo-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Eazow">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eazow">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Eazow">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/hexo-blog/" class="post-title-link" itemprop="url">在Github上用Hexo搭建个人Blog</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-03-25 10:01:06" itemprop="dateCreated datePublished" datetime="2016-03-25T10:01:06+08:00">2016-03-25</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1. 创建仓库"></a>1. 创建仓库</h4><p>在github上创建名称为username.github.io仓库</p>
+<h4 id="2-Clone"><a href="#2-Clone" class="headerlink" title="2. Clone"></a>2. Clone</h4><p>将仓库clone到本地</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/username/username.github.io</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-Hello-World"><a href="#3-Hello-World" class="headerlink" title="3. Hello World"></a>3. Hello World</h4><p>创建<code>index.html</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd username.github.io</span><br><span class="line">$ echo &quot;Hello World&quot; &gt; index.html</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-push"><a href="#4-push" class="headerlink" title="4. push"></a>4. push</h4><p>提交代码并<code>push</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add --all</span><br><span class="line">$ git commit -m &quot;Initial commit&quot;</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-验证"><a href="#5-验证" class="headerlink" title="5. 验证"></a>5. 验证</h4><p>访问username.github.io，这样就能看到Hello World了</p>
+<h4 id="6-域名映射"><a href="#6-域名映射" class="headerlink" title="6. 域名映射"></a>6. 域名映射</h4><p>将域名映射到username.github.io</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ echo &quot;www.yourdomain.com&quot; &gt; CNAME</span><br><span class="line">$ git commit -m &quot;Create CNAME&quot;</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+<p>在域名管理添加一条CNAME记录，将<a target="_blank" rel="noopener" href="http://www.yourdomain.com指向username.github.io/">www.yourdomain.com指向username.github.io</a></p>
+<h4 id="7-安装Hexo"><a href="#7-安装Hexo" class="headerlink" title="7. 安装Hexo"></a>7. 安装Hexo</h4><h5 id="7-1-什么是Hexo"><a href="#7-1-什么是Hexo" class="headerlink" title="7.1 什么是Hexo"></a>7.1 什么是Hexo</h5><p>Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds.</p>
+<h5 id="7-2-安装Git"><a href="#7-2-安装Git" class="headerlink" title="7.2 安装Git"></a>7.2 安装Git</h5><h5 id="7-3-安装Node-js"><a href="#7-3-安装Node-js" class="headerlink" title="7.3 安装Node.js"></a>7.3 安装Node.js</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</span><br><span class="line">$ nvm install 4</span><br></pre></td></tr></table></figure>
+<h5 id="7-4-安装Hexo"><a href="#7-4-安装Hexo" class="headerlink" title="7.4 安装Hexo"></a>7.4 安装Hexo</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>这样就可以通过localhost:4000访问了</p>
+<h5 id="7-5-部署到github"><a href="#7-5-部署到github" class="headerlink" title="7.5 部署到github"></a>7.5 部署到github</h5><p>安装hexo-deployer-git</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>修改<code>_config.yml</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &lt;repository url&gt;</span><br></pre></td></tr></table></figure>
+
+<p>部署到github</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>但是部署后会覆盖掉github上的CNAME和README.md，需要在hexo的source目录添加CNAME和README.md，但是执行hexo generate后README.md会生成README.html，因此需要配置下，不让其渲染README.md。<br>修改Hexo目录下的_config.yml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip_render: README.md</span><br></pre></td></tr></table></figure>
+
+<p>然后运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<p>这样就部署到github上了，并且不会覆盖掉已写好的CNAME和README.md了。</p>
+<h5 id="7-6-写blog"><a href="#7-6-写blog" class="headerlink" title="7.6 写blog"></a>7.6 写blog</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;Markdown&quot;</span><br></pre></td></tr></table></figure>
+<p>会在<code>source/_posts/</code>目录下生成<code>Markdown.md</code>文件，编辑该文件后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a target="_blank" rel="noopener" href="https://github.io/">https://github.io</a><br><a target="_blank" rel="noopener" href="https://hexo.io/">https://hexo.io</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://eazow.com/linux-kernel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -253,13 +374,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">137k</span>
+    <span title="Symbols count total">139k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:04</span>
+    <span title="Reading time total">2:06</span>
   </span>
 </div>
 <div class="busuanzi-count">
